@@ -1,0 +1,22 @@
+PODS:
+  - pjsip (2.2):
+    - pjsip/pjlib
+    - pjsip/pjlib_util
+    - pjsip/pjmedia
+    - pjsip/pjnath
+    - pjsip/pjsip
+    - pjsip/third_party
+  - pjsip/pjlib (2.2)
+  - pjsip/pjlib_util (2.2)
+  - pjsip/pjmedia (2.2)
+  - pjsip/pjnath (2.2)
+  - pjsip/pjsip (2.2)
+  - pjsip/third_party (2.2)
+
+DEPENDENCIES:
+  - pjsip
+
+SPEC CHECKSUMS:
+  pjsip: d757149590986cefc74104a4aeb1668a2dd8fa43
+
+COCOAPODS: 0.32.1
