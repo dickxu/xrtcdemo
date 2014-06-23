@@ -626,34 +626,26 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testWebRTC/testWebRTC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/pjsip\"",
-					"\"${PODS_ROOT}/Headers/pjsip/pjlib-util/include\"",
-					"\"${PODS_ROOT}/Headers/pjsip/pjlib/include\"",
-					"\"${PODS_ROOT}/Headers/pjsip/pjmedia/include\"",
-					"\"${PODS_ROOT}/Headers/pjsip/pjnath/include\"",
-					"\"${PODS_ROOT}/Headers/pjsip/pjsip/include\"",
-					"$(PODS_ROOT)/pjsip/pjproject-2.2/pjlib/include",
-					"$(PODS_ROOT)/pjsip/pjproject-2.2/pjlib-util/include",
-					"$(PODS_ROOT)/pjsip/pjproject-2.2/pjmedia/include",
-					"$(PODS_ROOT)/pjsip/pjproject-2.2/pjnath/include",
-					"$(PODS_ROOT)/pjsip/pjproject-2.2/pjsip/include",
 					"$(PROJECT_DIR)/xrtc/inc",
+					"$(PROJECT_DIR)/osip2/include",
+					"$(PROJECT_DIR)/exosip/include",
 				);
 				INFOPLIST_FILE = "testWebRTC/testWebRTC-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/sunrui/Documents/Git/perfume/rtcall/librtc/third_party/webrtc/trunk/out_ios/Release-iphoneos",
 					"$(PROJECT_DIR)/testWebRTC/Release",
-					/Users/sunrui/Documents/Git/perfume/rtcall/librtc/bld/lib/Release,
 					"$(PROJECT_DIR)/xrtc/lib",
+					"$(PROJECT_DIR)/osip2/libs",
+					"$(PROJECT_DIR)/exosip/libs",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lrtc",
 					"-lubase",
-					"-lpjsip_all",
 					"-lwebrtc_all",
+					"-losipparser2",
+					"-losip2",
+					"-leXosip2",
 					"-framework",
 					AVFoundation,
 					"-framework",
@@ -676,34 +668,26 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testWebRTC/testWebRTC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"${PODS_ROOT}/Headers\"",
-					"\"${PODS_ROOT}/Headers/pjsip\"",
-					"\"${PODS_ROOT}/Headers/pjsip/pjlib-util/include\"",
-					"\"${PODS_ROOT}/Headers/pjsip/pjlib/include\"",
-					"\"${PODS_ROOT}/Headers/pjsip/pjmedia/include\"",
-					"\"${PODS_ROOT}/Headers/pjsip/pjnath/include\"",
-					"\"${PODS_ROOT}/Headers/pjsip/pjsip/include\"",
-					"$(PODS_ROOT)/pjsip/pjproject-2.2/pjlib/include",
-					"$(PODS_ROOT)/pjsip/pjproject-2.2/pjlib-util/include",
-					"$(PODS_ROOT)/pjsip/pjproject-2.2/pjmedia/include",
-					"$(PODS_ROOT)/pjsip/pjproject-2.2/pjnath/include",
-					"$(PODS_ROOT)/pjsip/pjproject-2.2/pjsip/include",
 					"$(PROJECT_DIR)/xrtc/inc",
+					"$(PROJECT_DIR)/osip2/include",
+					"$(PROJECT_DIR)/exosip/include",
 				);
 				INFOPLIST_FILE = "testWebRTC/testWebRTC-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/sunrui/Documents/Git/perfume/rtcall/librtc/third_party/webrtc/trunk/out_ios/Release-iphoneos",
 					"$(PROJECT_DIR)/testWebRTC/Release",
-					/Users/sunrui/Documents/Git/perfume/rtcall/librtc/bld/lib/Release,
 					"$(PROJECT_DIR)/xrtc/lib",
+					"$(PROJECT_DIR)/osip2/libs",
+					"$(PROJECT_DIR)/exosip/libs",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lrtc",
 					"-lubase",
-					"-lpjsip_all",
 					"-lwebrtc_all",
+					"-losipparser2",
+					"-losip2",
+					"-leXosip2",
 					"-framework",
 					AVFoundation,
 					"-framework",

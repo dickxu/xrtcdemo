@@ -33,10 +33,7 @@
     
     // for sip init
     if (g_sip != NULL) {
-        g_sip->Init();
-        g_sip->AddTransport();
-        g_sip->Start();
-        g_sip->Register();
+
     }
 }
 

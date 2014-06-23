@@ -10,39 +10,20 @@
 #define __testWebRTC__SipCenter__
 
 #include <iostream>
-#include "pjsua.h"
+
+#include "eXosip2/eXosip.h"
 
 class CSipCenter {
 public:
     CSipCenter();
     ~CSipCenter();
     
-    int Init();
-    int Uninit();
-    
-    int SetAccount(std::string user, std::string password, std::string realm);
-    int AddTransport();
-    int Start();
-    int Register();
-    int Call(std::string szuri);
-    
-protected:
-    int Looping();
-    
 public:
-    void OnIncomingCall(pjsua_acc_id acc_id, pjsua_call_id call_id, pjsip_rx_data *rdata);
-    void OnCallState(pjsua_call_id call_id, pjsip_event *e);
-    void OnCallMediaState(pjsua_call_id call_id);
-    
+    bool Init();
+
 private:
-    pjsua_acc_id m_acc_id;
-    std::string m_user;
-    std::string m_passwd;
-    std::string m_realm;
-    std::string m_scheme;
-    
-    pj_uint16_t m_port;
-    std::string m_sdp;
+    struct eXosip_t *m_osip;
+    unsigned short m_port;
 };
 
 extern CSipCenter *g_sip;
