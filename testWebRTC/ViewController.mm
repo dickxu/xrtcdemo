@@ -26,14 +26,14 @@
     long lret = 0;
     _rtc_center = [[RtcCenter alloc]init];
     if([_rtc_center Init]) {
-        lret = [_rtc_center xrtc]->GetUserMedia(true, false);
-        lret = [_rtc_center xrtc]->CreatePeerConnection();
-        lret = [_rtc_center xrtc]->AddLocalStream();
+        //[_rtc_center SetLocalStream];
     }
     
     // for sip init
     if (g_sip != NULL) {
-
+        g_sip->Init();
+        g_sip->Start();
+        g_sip->SendRegister();
     }
 }
 

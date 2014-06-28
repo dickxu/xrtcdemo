@@ -24,7 +24,16 @@
     if (bret) {
         _xrtc->SetSink(self);
     }
+    
     return bret;
+}
+
+- (bool) SetLocalStream
+{
+    long lret = _xrtc->GetUserMedia(true, false);
+    lret = _xrtc->CreatePeerConnection();
+    lret = _xrtc->AddLocalStream();
+    return true;
 }
 
 - (void) OnSessionDescription:(const std::string &)type sdp:(const std::string &)str
@@ -45,7 +54,10 @@
 
 - (void) OnGetUserMedia:(int)error errstr:(std::string)str
 {
-    error = 1;
+    if (error == 0)
+    {
+        error = 0;
+    }
 }
 
 - (void) OnFailureMesssage:(std::string)str

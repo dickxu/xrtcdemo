@@ -20,10 +20,42 @@ public:
     
 public:
     bool Init();
+    bool Start();
+    bool Stop();
+    
+    bool SendInvite(std::string to, std::string subject);
+    bool SendAnswer(eXosip_event_t *evt);
+    bool SendInfo(eXosip_event_t *evt, std::string message);
+    
+    bool SendRegister();
+    bool UpdateRegister(int expires);
+    bool Teriminate();
+    
+protected:
+    static void * ThreadStart(void * param);
+    void Run();
 
 private:
-    struct eXosip_t *m_osip;
+    struct eXosip_t *m_ctx;
+    int m_rid; // registration identifier
+    int m_cid; // call identifier, for INVITE and CANCEL
+    int m_did; // dialog identifier
+    int m_tid; // transaction identifier
+    
     unsigned short m_port;
+    unsigned int m_expires;
+    
+    std::string m_uname;
+    std::string m_passwd;
+    std::string m_domain;
+    std::string m_from;
+    std::string m_proxy;
+    
+    std::string m_sdp;
+    bool m_register;
+    
+    bool m_quit;
+    pthread_t m_pid;
 };
 
 extern CSipCenter *g_sip;

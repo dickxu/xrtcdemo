@@ -16,3 +16,4 @@
 #endif
 
 #define OBJC
+#define ENABLE_TRACE

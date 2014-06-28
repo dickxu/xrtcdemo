@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		540A7B4E19570A4F00A56C7F /* RtcCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 540A7B4D19570A4F00A56C7F /* RtcCenter.mm */; };
+		54284FB7195E48DD00D8621C /* libexosip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54284FB4195E483900D8621C /* libexosip.a */; };
+		54284FB8195E48DD00D8621C /* libosip2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54284FA2195E481900D8621C /* libosip2.a */; };
+		54284FB9195E48DD00D8621C /* libosipparse2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54284FAB195E482A00D8621C /* libosipparse2.a */; };
 		54A0D96C194C651E0086FFFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A0D96B194C651E0086FFFF /* libsqlite3.dylib */; };
 		54A0D96E194C65850086FFFF /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A0D96D194C65850086FFFF /* GLKit.framework */; };
 		54A0D978194C65D10086FFFF /* SipCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54A0D975194C65D10086FFFF /* SipCenter.cpp */; };
+		54B3CCB41958920200804C47 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B3CCB31958920200804C47 /* libresolv.dylib */; };
 		7D23DF4D19436C6B0041CCBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D23DF4C19436C6B0041CCBE /* Foundation.framework */; };
 		7D23DF4F19436C6B0041CCBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D23DF4E19436C6B0041CCBE /* CoreGraphics.framework */; };
 		7D23DF5119436C6B0041CCBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D23DF5019436C6B0041CCBE /* UIKit.framework */; };
@@ -31,6 +35,48 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		54284FA1195E481900D8621C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54284F9C195E481900D8621C /* osip2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54466801195E4115005D83DA;
+			remoteInfo = osip2;
+		};
+		54284FA3195E481900D8621C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54284F9C195E481900D8621C /* osip2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54466811195E4115005D83DA;
+			remoteInfo = osip2Tests;
+		};
+		54284FAA195E482A00D8621C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54284FA5195E482A00D8621C /* osipparse2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54466833195E4182005D83DA;
+			remoteInfo = osipparse2;
+		};
+		54284FAC195E482A00D8621C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54284FA5195E482A00D8621C /* osipparse2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54466843195E4182005D83DA;
+			remoteInfo = osipparse2Tests;
+		};
+		54284FB3195E483900D8621C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54284FAE195E483900D8621C /* exosip.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54466781195E3F78005D83DA;
+			remoteInfo = exosip;
+		};
+		54284FB5195E483900D8621C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54284FAE195E483900D8621C /* exosip.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54466791195E3F78005D83DA;
+			remoteInfo = exosipTests;
+		};
 		7D23DF7219436C6B0041CCBE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7D23DF4119436C6B0041CCBE /* Project object */;
@@ -45,11 +91,15 @@
 		37B2894D062842C3BED92818 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		540A7B4D19570A4F00A56C7F /* RtcCenter.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = RtcCenter.mm; sourceTree = "<group>"; };
 		540A7B4F19570A9500A56C7F /* RtcCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RtcCenter.h; sourceTree = "<group>"; };
+		54284F9C195E481900D8621C /* osip2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = osip2.xcodeproj; path = "../sipstack/libosip2-4.1.0/platform/ios/osip2/osip2.xcodeproj"; sourceTree = "<group>"; };
+		54284FA5195E482A00D8621C /* osipparse2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = osipparse2.xcodeproj; path = "../sipstack/libosip2-4.1.0/platform/ios/osipparse2/osipparse2.xcodeproj"; sourceTree = "<group>"; };
+		54284FAE195E483900D8621C /* exosip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = exosip.xcodeproj; path = "../sipstack/exosip-4.1.0/platform/ios/exosip/exosip.xcodeproj"; sourceTree = "<group>"; };
 		54A0D96B194C651E0086FFFF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		54A0D96D194C65850086FFFF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		54A0D970194C65BF0086FFFF /* xrtc_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xrtc_api.h; path = xrtc/inc/xrtc_api.h; sourceTree = SOURCE_ROOT; };
 		54A0D975194C65D10086FFFF /* SipCenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SipCenter.cpp; sourceTree = "<group>"; };
 		54A0D976194C65D10086FFFF /* SipCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SipCenter.h; sourceTree = "<group>"; };
+		54B3CCB31958920200804C47 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		7D23DF4919436C6B0041CCBE /* testWebRTC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testWebRTC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D23DF4C19436C6B0041CCBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7D23DF4E19436C6B0041CCBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -147,6 +197,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54284FB7195E48DD00D8621C /* libexosip.a in Frameworks */,
+				54284FB8195E48DD00D8621C /* libosip2.a in Frameworks */,
+				54284FB9195E48DD00D8621C /* libosipparse2.a in Frameworks */,
+				54B3CCB41958920200804C47 /* libresolv.dylib in Frameworks */,
 				54A0D96E194C65850086FFFF /* GLKit.framework in Frameworks */,
 				54A0D96C194C651E0086FFFF /* libsqlite3.dylib in Frameworks */,
 				7D23F2D719436D560041CCBE /* CoreMedia.framework in Frameworks */,
@@ -170,6 +224,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54284F9D195E481900D8621C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54284FA2195E481900D8621C /* libosip2.a */,
+				54284FA4195E481900D8621C /* osip2Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		54284FA6195E482A00D8621C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54284FAB195E482A00D8621C /* libosipparse2.a */,
+				54284FAD195E482A00D8621C /* osipparse2Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		54284FAF195E483900D8621C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54284FB4195E483900D8621C /* libexosip.a */,
+				54284FB6195E483900D8621C /* exosipTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		54A0D96F194C65A40086FFFF /* xrtc */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +266,9 @@
 		7D23DF4019436C6B0041CCBE = {
 			isa = PBXGroup;
 			children = (
+				54284FAE195E483900D8621C /* exosip.xcodeproj */,
+				54284FA5195E482A00D8621C /* osipparse2.xcodeproj */,
+				54284F9C195E481900D8621C /* osip2.xcodeproj */,
 				7D23DF5219436C6B0041CCBE /* testWebRTC */,
 				7D23DF7419436C6B0041CCBE /* testWebRTCTests */,
 				7D23DF4B19436C6B0041CCBE /* Frameworks */,
@@ -205,6 +289,7 @@
 		7D23DF4B19436C6B0041CCBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				54B3CCB31958920200804C47 /* libresolv.dylib */,
 				54A0D96D194C65850086FFFF /* GLKit.framework */,
 				54A0D96B194C651E0086FFFF /* libsqlite3.dylib */,
 				7D23F2D619436D560041CCBE /* CoreMedia.framework */,
@@ -414,6 +499,20 @@
 			mainGroup = 7D23DF4019436C6B0041CCBE;
 			productRefGroup = 7D23DF4A19436C6B0041CCBE /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 54284FAF195E483900D8621C /* Products */;
+					ProjectRef = 54284FAE195E483900D8621C /* exosip.xcodeproj */;
+				},
+				{
+					ProductGroup = 54284F9D195E481900D8621C /* Products */;
+					ProjectRef = 54284F9C195E481900D8621C /* osip2.xcodeproj */;
+				},
+				{
+					ProductGroup = 54284FA6195E482A00D8621C /* Products */;
+					ProjectRef = 54284FA5195E482A00D8621C /* osipparse2.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7D23DF4819436C6B0041CCBE /* testWebRTC */,
@@ -421,6 +520,51 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		54284FA2195E481900D8621C /* libosip2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libosip2.a;
+			remoteRef = 54284FA1195E481900D8621C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54284FA4195E481900D8621C /* osip2Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = osip2Tests.xctest;
+			remoteRef = 54284FA3195E481900D8621C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54284FAB195E482A00D8621C /* libosipparse2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libosipparse2.a;
+			remoteRef = 54284FAA195E482A00D8621C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54284FAD195E482A00D8621C /* osipparse2Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = osipparse2Tests.xctest;
+			remoteRef = 54284FAC195E482A00D8621C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54284FB4195E483900D8621C /* libexosip.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libexosip.a;
+			remoteRef = 54284FB3195E483900D8621C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54284FB6195E483900D8621C /* exosipTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = exosipTests.xctest;
+			remoteRef = 54284FB5195E483900D8621C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7D23DF4719436C6B0041CCBE /* Resources */ = {
@@ -620,7 +764,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1C758CD9DC70471DA28BC6B1 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -634,18 +778,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/testWebRTC/Release",
-					"$(PROJECT_DIR)/xrtc/lib",
-					"$(PROJECT_DIR)/osip2/libs",
-					"$(PROJECT_DIR)/exosip/libs",
+					"$(PROJECT_DIR)/xrtc/libs/ios",
+					"$(PROJECT_DIR)/osip2/libs/ios",
+					"$(PROJECT_DIR)/exosip/libs/ios",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lrtc",
 					"-lubase",
 					"-lwebrtc_all",
-					"-losipparser2",
-					"-losip2",
-					"-leXosip2",
 					"-framework",
 					AVFoundation,
 					"-framework",
@@ -654,6 +795,7 @@
 					CFNetwork,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -662,7 +804,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1C758CD9DC70471DA28BC6B1 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -676,18 +818,15 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/testWebRTC/Release",
-					"$(PROJECT_DIR)/xrtc/lib",
-					"$(PROJECT_DIR)/osip2/libs",
-					"$(PROJECT_DIR)/exosip/libs",
+					"$(PROJECT_DIR)/xrtc/libs/ios",
+					"$(PROJECT_DIR)/osip2/libs/ios",
+					"$(PROJECT_DIR)/exosip/libs/ios",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lrtc",
 					"-lubase",
 					"-lwebrtc_all",
-					"-losipparser2",
-					"-losip2",
-					"-leXosip2",
 					"-framework",
 					AVFoundation,
 					"-framework",
@@ -696,6 +835,7 @@
 					CFNetwork,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
