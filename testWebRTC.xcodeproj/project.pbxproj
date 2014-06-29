@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		540A7B4E19570A4F00A56C7F /* RtcCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 540A7B4D19570A4F00A56C7F /* RtcCenter.mm */; };
-		54284FB7195E48DD00D8621C /* libexosip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54284FB4195E483900D8621C /* libexosip.a */; };
-		54284FB8195E48DD00D8621C /* libosip2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54284FA2195E481900D8621C /* libosip2.a */; };
-		54284FB9195E48DD00D8621C /* libosipparse2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54284FAB195E482A00D8621C /* libosipparse2.a */; };
 		54A0D96C194C651E0086FFFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A0D96B194C651E0086FFFF /* libsqlite3.dylib */; };
 		54A0D96E194C65850086FFFF /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A0D96D194C65850086FFFF /* GLKit.framework */; };
 		54A0D978194C65D10086FFFF /* SipCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54A0D975194C65D10086FFFF /* SipCenter.cpp */; };
@@ -35,48 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		54284FA1195E481900D8621C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 54284F9C195E481900D8621C /* osip2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54466801195E4115005D83DA;
-			remoteInfo = osip2;
-		};
-		54284FA3195E481900D8621C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 54284F9C195E481900D8621C /* osip2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54466811195E4115005D83DA;
-			remoteInfo = osip2Tests;
-		};
-		54284FAA195E482A00D8621C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 54284FA5195E482A00D8621C /* osipparse2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54466833195E4182005D83DA;
-			remoteInfo = osipparse2;
-		};
-		54284FAC195E482A00D8621C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 54284FA5195E482A00D8621C /* osipparse2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54466843195E4182005D83DA;
-			remoteInfo = osipparse2Tests;
-		};
-		54284FB3195E483900D8621C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 54284FAE195E483900D8621C /* exosip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54466781195E3F78005D83DA;
-			remoteInfo = exosip;
-		};
-		54284FB5195E483900D8621C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 54284FAE195E483900D8621C /* exosip.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 54466791195E3F78005D83DA;
-			remoteInfo = exosipTests;
-		};
 		7D23DF7219436C6B0041CCBE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7D23DF4119436C6B0041CCBE /* Project object */;
@@ -91,9 +46,6 @@
 		37B2894D062842C3BED92818 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		540A7B4D19570A4F00A56C7F /* RtcCenter.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = RtcCenter.mm; sourceTree = "<group>"; };
 		540A7B4F19570A9500A56C7F /* RtcCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RtcCenter.h; sourceTree = "<group>"; };
-		54284F9C195E481900D8621C /* osip2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = osip2.xcodeproj; path = "../sipstack/libosip2-4.1.0/platform/ios/osip2/osip2.xcodeproj"; sourceTree = "<group>"; };
-		54284FA5195E482A00D8621C /* osipparse2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = osipparse2.xcodeproj; path = "../sipstack/libosip2-4.1.0/platform/ios/osipparse2/osipparse2.xcodeproj"; sourceTree = "<group>"; };
-		54284FAE195E483900D8621C /* exosip.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = exosip.xcodeproj; path = "../sipstack/exosip-4.1.0/platform/ios/exosip/exosip.xcodeproj"; sourceTree = "<group>"; };
 		54A0D96B194C651E0086FFFF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		54A0D96D194C65850086FFFF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		54A0D970194C65BF0086FFFF /* xrtc_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xrtc_api.h; path = xrtc/inc/xrtc_api.h; sourceTree = SOURCE_ROOT; };
@@ -120,74 +72,6 @@
 		7D23DF7619436C6B0041CCBE /* testWebRTCTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "testWebRTCTests-Info.plist"; sourceTree = "<group>"; };
 		7D23DF7819436C6B0041CCBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7D23DF7A19436C6B0041CCBE /* testWebRTCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testWebRTCTests.m; sourceTree = "<group>"; };
-		7D23DFED19436C9A0041CCBE /* libacm2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libacm2.a; sourceTree = "<group>"; };
-		7D23DFEE19436C9A0041CCBE /* libaudio_coding_module.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libaudio_coding_module.a; sourceTree = "<group>"; };
-		7D23DFEF19436C9A0041CCBE /* libaudio_conference_mixer.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libaudio_conference_mixer.a; sourceTree = "<group>"; };
-		7D23DFF019436C9A0041CCBE /* libaudio_device.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libaudio_device.a; sourceTree = "<group>"; };
-		7D23DFF119436C9A0041CCBE /* libaudio_processing.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libaudio_processing.a; sourceTree = "<group>"; };
-		7D23DFF219436C9A0041CCBE /* libaudio_processing_neon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libaudio_processing_neon.a; sourceTree = "<group>"; };
-		7D23DFF319436C9A0041CCBE /* libbitrate_controller.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbitrate_controller.a; sourceTree = "<group>"; };
-		7D23DFF419436C9A0041CCBE /* libCNG.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCNG.a; sourceTree = "<group>"; };
-		7D23DFF519436C9A0041CCBE /* libcommon_audio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcommon_audio.a; sourceTree = "<group>"; };
-		7D23DFF619436C9A0041CCBE /* libcommon_audio_neon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcommon_audio_neon.a; sourceTree = "<group>"; };
-		7D23DFF719436C9A0041CCBE /* libcommon_video.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcommon_video.a; sourceTree = "<group>"; };
-		7D23DFF819436C9A0041CCBE /* libcrnspr.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrnspr.a; sourceTree = "<group>"; };
-		7D23DFF919436C9A0041CCBE /* libcrnss.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrnss.a; sourceTree = "<group>"; };
-		7D23DFFA19436C9A0041CCBE /* libcrnssckbi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrnssckbi.a; sourceTree = "<group>"; };
-		7D23DFFB19436C9A0041CCBE /* libcrssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrssl.a; sourceTree = "<group>"; };
-		7D23DFFC19436C9A0041CCBE /* libdesktop_capture.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdesktop_capture.a; sourceTree = "<group>"; };
-		7D23DFFD19436C9A0041CCBE /* libexpat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libexpat.a; sourceTree = "<group>"; };
-		7D23DFFE19436C9A0041CCBE /* libG711.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libG711.a; sourceTree = "<group>"; };
-		7D23DFFF19436C9A0041CCBE /* libG722.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libG722.a; sourceTree = "<group>"; };
-		7D23E00019436C9A0041CCBE /* libgunit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgunit.a; sourceTree = "<group>"; };
-		7D23E00119436C9A0041CCBE /* libicudata.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libicudata.a; sourceTree = "<group>"; };
-		7D23E00219436C9A0041CCBE /* libicui18n.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libicui18n.a; sourceTree = "<group>"; };
-		7D23E00319436C9A0041CCBE /* libicuuc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libicuuc.a; sourceTree = "<group>"; };
-		7D23E00419436C9A0041CCBE /* libiLBC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiLBC.a; sourceTree = "<group>"; };
-		7D23E00519436C9A0041CCBE /* libiSAC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiSAC.a; sourceTree = "<group>"; };
-		7D23E00619436C9A0041CCBE /* libisac_neon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libisac_neon.a; sourceTree = "<group>"; };
-		7D23E00719436C9A0041CCBE /* libiSACFix.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiSACFix.a; sourceTree = "<group>"; };
-		7D23E00819436C9A0041CCBE /* libjingle.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle.a; sourceTree = "<group>"; };
-		7D23E00919436C9A0041CCBE /* libjingle_media.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_media.a; sourceTree = "<group>"; };
-		7D23E00B19436C9A0041CCBE /* libjingle_p2p.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_p2p.a; sourceTree = "<group>"; };
-		7D23E00D19436C9A0041CCBE /* libjingle_peerconnection.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_peerconnection.a; sourceTree = "<group>"; };
-		7D23E00E19436C9A0041CCBE /* libjingle_peerconnection_objc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_peerconnection_objc.a; sourceTree = "<group>"; };
-		7D23E01119436C9A0041CCBE /* libjingle_sound.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_sound.a; sourceTree = "<group>"; };
-		7D23E01419436C9A0041CCBE /* libjingle_unittest_main.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_unittest_main.a; sourceTree = "<group>"; };
-		7D23E01519436C9A0041CCBE /* libjingle_xmpphelp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjingle_xmpphelp.a; sourceTree = "<group>"; };
-		7D23E01619436C9A0041CCBE /* libjsoncpp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjsoncpp.a; sourceTree = "<group>"; };
-		7D23E01719436C9A0041CCBE /* libmedia_file.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmedia_file.a; sourceTree = "<group>"; };
-		7D23E01819436C9A0041CCBE /* libNetEq.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNetEq.a; sourceTree = "<group>"; };
-		7D23E01919436C9A0041CCBE /* libNetEq4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libNetEq4.a; sourceTree = "<group>"; };
-		7D23E01A19436C9A0041CCBE /* libnss_static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libnss_static.a; sourceTree = "<group>"; };
-		7D23E01B19436C9A0041CCBE /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopus.a; sourceTree = "<group>"; };
-		7D23E01C19436C9A0041CCBE /* libpaced_sender.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpaced_sender.a; sourceTree = "<group>"; };
-		7D23E01D19436C9A0041CCBE /* libPCM16B.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPCM16B.a; sourceTree = "<group>"; };
-		7D23E01E19436C9A0041CCBE /* librbe_components.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librbe_components.a; sourceTree = "<group>"; };
-		7D23E01F19436C9A0041CCBE /* libremote_bitrate_estimator.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libremote_bitrate_estimator.a; sourceTree = "<group>"; };
-		7D23E02019436C9A0041CCBE /* librtp_rtcp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librtp_rtcp.a; sourceTree = "<group>"; };
-		7D23E02119436C9A0041CCBE /* libsqlite_regexp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsqlite_regexp.a; sourceTree = "<group>"; };
-		7D23E02219436C9A0041CCBE /* libsrtp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsrtp.a; sourceTree = "<group>"; };
-		7D23E02319436C9A0041CCBE /* libsystem_wrappers.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libsystem_wrappers.a; sourceTree = "<group>"; };
-		7D23E02419436C9A0041CCBE /* libvideo_capture_module.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvideo_capture_module.a; sourceTree = "<group>"; };
-		7D23E02519436C9A0041CCBE /* libvideo_coding_utility.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvideo_coding_utility.a; sourceTree = "<group>"; };
-		7D23E02619436C9A0041CCBE /* libvideo_engine_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvideo_engine_core.a; sourceTree = "<group>"; };
-		7D23E02719436C9A0041CCBE /* libvideo_processing.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvideo_processing.a; sourceTree = "<group>"; };
-		7D23E02819436C9A0041CCBE /* libvideo_render_module.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvideo_render_module.a; sourceTree = "<group>"; };
-		7D23E02919436C9A0041CCBE /* libvoice_engine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvoice_engine.a; sourceTree = "<group>"; };
-		7D23E02A19436C9A0041CCBE /* libvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvpx.a; sourceTree = "<group>"; };
-		7D23E02B19436C9A0041CCBE /* libvpx_asm_offsets_vp8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvpx_asm_offsets_vp8.a; sourceTree = "<group>"; };
-		7D23E02C19436C9A0041CCBE /* libvpx_asm_offsets_vpx_scale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvpx_asm_offsets_vpx_scale.a; sourceTree = "<group>"; };
-		7D23E02E19436C9B0041CCBE /* libwebrtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebrtc.a; sourceTree = "<group>"; };
-		7D23E02F19436C9B0041CCBE /* libwebrtc_i420.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebrtc_i420.a; sourceTree = "<group>"; };
-		7D23E03019436C9B0041CCBE /* libwebrtc_opus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebrtc_opus.a; sourceTree = "<group>"; };
-		7D23E03119436C9B0041CCBE /* libwebrtc_Release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebrtc_Release.a; sourceTree = "<group>"; };
-		7D23E03219436C9B0041CCBE /* libwebrtc_utility.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebrtc_utility.a; sourceTree = "<group>"; };
-		7D23E03319436C9B0041CCBE /* libwebrtc_video_coding.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebrtc_video_coding.a; sourceTree = "<group>"; };
-		7D23E03419436C9B0041CCBE /* libwebrtc_vp8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libwebrtc_vp8.a; sourceTree = "<group>"; };
-		7D23E03519436C9B0041CCBE /* libyuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libyuv.a; sourceTree = "<group>"; };
-		7D23F2CC19436D0C0041CCBE /* librtc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librtc.a; sourceTree = "<group>"; };
-		7D23F2CD19436D0C0041CCBE /* libubase.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libubase.a; sourceTree = "<group>"; };
 		7D23F2D419436D500041CCBE /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7D23F2D619436D560041CCBE /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -197,9 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54284FB7195E48DD00D8621C /* libexosip.a in Frameworks */,
-				54284FB8195E48DD00D8621C /* libosip2.a in Frameworks */,
-				54284FB9195E48DD00D8621C /* libosipparse2.a in Frameworks */,
 				54B3CCB41958920200804C47 /* libresolv.dylib in Frameworks */,
 				54A0D96E194C65850086FFFF /* GLKit.framework in Frameworks */,
 				54A0D96C194C651E0086FFFF /* libsqlite3.dylib in Frameworks */,
@@ -224,33 +105,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		54284F9D195E481900D8621C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				54284FA2195E481900D8621C /* libosip2.a */,
-				54284FA4195E481900D8621C /* osip2Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		54284FA6195E482A00D8621C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				54284FAB195E482A00D8621C /* libosipparse2.a */,
-				54284FAD195E482A00D8621C /* osipparse2Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		54284FAF195E483900D8621C /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				54284FB4195E483900D8621C /* libexosip.a */,
-				54284FB6195E483900D8621C /* exosipTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		54A0D96F194C65A40086FFFF /* xrtc */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,9 +120,6 @@
 		7D23DF4019436C6B0041CCBE = {
 			isa = PBXGroup;
 			children = (
-				54284FAE195E483900D8621C /* exosip.xcodeproj */,
-				54284FA5195E482A00D8621C /* osipparse2.xcodeproj */,
-				54284F9C195E481900D8621C /* osip2.xcodeproj */,
 				7D23DF5219436C6B0041CCBE /* testWebRTC */,
 				7D23DF7419436C6B0041CCBE /* testWebRTCTests */,
 				7D23DF4B19436C6B0041CCBE /* Frameworks */,
@@ -353,72 +204,6 @@
 		7D23DF8419436C9A0041CCBE /* Release-iphoneos */ = {
 			isa = PBXGroup;
 			children = (
-				7D23DFED19436C9A0041CCBE /* libacm2.a */,
-				7D23DFEE19436C9A0041CCBE /* libaudio_coding_module.a */,
-				7D23DFEF19436C9A0041CCBE /* libaudio_conference_mixer.a */,
-				7D23DFF019436C9A0041CCBE /* libaudio_device.a */,
-				7D23DFF119436C9A0041CCBE /* libaudio_processing.a */,
-				7D23DFF219436C9A0041CCBE /* libaudio_processing_neon.a */,
-				7D23DFF319436C9A0041CCBE /* libbitrate_controller.a */,
-				7D23DFF419436C9A0041CCBE /* libCNG.a */,
-				7D23DFF519436C9A0041CCBE /* libcommon_audio.a */,
-				7D23DFF619436C9A0041CCBE /* libcommon_audio_neon.a */,
-				7D23DFF719436C9A0041CCBE /* libcommon_video.a */,
-				7D23DFF819436C9A0041CCBE /* libcrnspr.a */,
-				7D23DFF919436C9A0041CCBE /* libcrnss.a */,
-				7D23DFFA19436C9A0041CCBE /* libcrnssckbi.a */,
-				7D23DFFB19436C9A0041CCBE /* libcrssl.a */,
-				7D23DFFC19436C9A0041CCBE /* libdesktop_capture.a */,
-				7D23DFFD19436C9A0041CCBE /* libexpat.a */,
-				7D23DFFE19436C9A0041CCBE /* libG711.a */,
-				7D23DFFF19436C9A0041CCBE /* libG722.a */,
-				7D23E00019436C9A0041CCBE /* libgunit.a */,
-				7D23E00119436C9A0041CCBE /* libicudata.a */,
-				7D23E00219436C9A0041CCBE /* libicui18n.a */,
-				7D23E00319436C9A0041CCBE /* libicuuc.a */,
-				7D23E00419436C9A0041CCBE /* libiLBC.a */,
-				7D23E00519436C9A0041CCBE /* libiSAC.a */,
-				7D23E00619436C9A0041CCBE /* libisac_neon.a */,
-				7D23E00719436C9A0041CCBE /* libiSACFix.a */,
-				7D23E00819436C9A0041CCBE /* libjingle.a */,
-				7D23E00919436C9A0041CCBE /* libjingle_media.a */,
-				7D23E00B19436C9A0041CCBE /* libjingle_p2p.a */,
-				7D23E00D19436C9A0041CCBE /* libjingle_peerconnection.a */,
-				7D23E00E19436C9A0041CCBE /* libjingle_peerconnection_objc.a */,
-				7D23E01119436C9A0041CCBE /* libjingle_sound.a */,
-				7D23E01419436C9A0041CCBE /* libjingle_unittest_main.a */,
-				7D23E01519436C9A0041CCBE /* libjingle_xmpphelp.a */,
-				7D23E01619436C9A0041CCBE /* libjsoncpp.a */,
-				7D23E01719436C9A0041CCBE /* libmedia_file.a */,
-				7D23E01819436C9A0041CCBE /* libNetEq.a */,
-				7D23E01919436C9A0041CCBE /* libNetEq4.a */,
-				7D23E01A19436C9A0041CCBE /* libnss_static.a */,
-				7D23E01B19436C9A0041CCBE /* libopus.a */,
-				7D23E01C19436C9A0041CCBE /* libpaced_sender.a */,
-				7D23E01D19436C9A0041CCBE /* libPCM16B.a */,
-				7D23E01E19436C9A0041CCBE /* librbe_components.a */,
-				7D23E01F19436C9A0041CCBE /* libremote_bitrate_estimator.a */,
-				7D23E02019436C9A0041CCBE /* librtp_rtcp.a */,
-				7D23E02119436C9A0041CCBE /* libsqlite_regexp.a */,
-				7D23E02219436C9A0041CCBE /* libsrtp.a */,
-				7D23E02319436C9A0041CCBE /* libsystem_wrappers.a */,
-				7D23E02419436C9A0041CCBE /* libvideo_capture_module.a */,
-				7D23E02519436C9A0041CCBE /* libvideo_coding_utility.a */,
-				7D23E02619436C9A0041CCBE /* libvideo_engine_core.a */,
-				7D23E02719436C9A0041CCBE /* libvideo_processing.a */,
-				7D23E02819436C9A0041CCBE /* libvideo_render_module.a */,
-				7D23E02919436C9A0041CCBE /* libvoice_engine.a */,
-				7D23E02A19436C9A0041CCBE /* libvpx.a */,
-				7D23E02B19436C9A0041CCBE /* libvpx_asm_offsets_vp8.a */,
-				7D23E02C19436C9A0041CCBE /* libvpx_asm_offsets_vpx_scale.a */,
-				7D23E02E19436C9B0041CCBE /* libwebrtc.a */,
-				7D23E02F19436C9B0041CCBE /* libwebrtc_i420.a */,
-				7D23E03019436C9B0041CCBE /* libwebrtc_opus.a */,
-				7D23E03119436C9B0041CCBE /* libwebrtc_Release.a */,
-				7D23E03219436C9B0041CCBE /* libwebrtc_utility.a */,
-				7D23E03319436C9B0041CCBE /* libwebrtc_video_coding.a */,
-				7D23E03419436C9B0041CCBE /* libwebrtc_vp8.a */,
-				7D23E03519436C9B0041CCBE /* libyuv.a */,
 			);
 			name = "Release-iphoneos";
 			path = "../../../../../Documents/Git/perfume/rtcall/librtc/third_party/webrtc/trunk/out_ios/Release-iphoneos";
@@ -427,8 +212,6 @@
 		7D23F2CB19436D0C0041CCBE /* Release */ = {
 			isa = PBXGroup;
 			children = (
-				7D23F2CC19436D0C0041CCBE /* librtc.a */,
-				7D23F2CD19436D0C0041CCBE /* libubase.a */,
 			);
 			name = Release;
 			path = ../../../../../Documents/Git/perfume/rtcall/librtc/bld/lib/Release;
@@ -499,20 +282,6 @@
 			mainGroup = 7D23DF4019436C6B0041CCBE;
 			productRefGroup = 7D23DF4A19436C6B0041CCBE /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 54284FAF195E483900D8621C /* Products */;
-					ProjectRef = 54284FAE195E483900D8621C /* exosip.xcodeproj */;
-				},
-				{
-					ProductGroup = 54284F9D195E481900D8621C /* Products */;
-					ProjectRef = 54284F9C195E481900D8621C /* osip2.xcodeproj */;
-				},
-				{
-					ProductGroup = 54284FA6195E482A00D8621C /* Products */;
-					ProjectRef = 54284FA5195E482A00D8621C /* osipparse2.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				7D23DF4819436C6B0041CCBE /* testWebRTC */,
@@ -520,51 +289,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		54284FA2195E481900D8621C /* libosip2.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libosip2.a;
-			remoteRef = 54284FA1195E481900D8621C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		54284FA4195E481900D8621C /* osip2Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = osip2Tests.xctest;
-			remoteRef = 54284FA3195E481900D8621C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		54284FAB195E482A00D8621C /* libosipparse2.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libosipparse2.a;
-			remoteRef = 54284FAA195E482A00D8621C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		54284FAD195E482A00D8621C /* osipparse2Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = osipparse2Tests.xctest;
-			remoteRef = 54284FAC195E482A00D8621C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		54284FB4195E483900D8621C /* libexosip.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libexosip.a;
-			remoteRef = 54284FB3195E483900D8621C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		54284FB6195E483900D8621C /* exosipTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = exosipTests.xctest;
-			remoteRef = 54284FB5195E483900D8621C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7D23DF4719436C6B0041CCBE /* Resources */ = {
@@ -721,9 +445,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -757,6 +482,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
@@ -784,8 +510,6 @@
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
-					"-lrtc",
-					"-lubase",
 					"-lwebrtc_all",
 					"-framework",
 					AVFoundation,
@@ -795,7 +519,7 @@
 					CFNetwork,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -824,8 +548,6 @@
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
-					"-lrtc",
-					"-lubase",
 					"-lwebrtc_all",
 					"-framework",
 					AVFoundation,
@@ -835,7 +557,7 @@
 					CFNetwork,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				VALID_ARCHS = "arm64 armv7 armv7s";
+				VALID_ARCHS = armv7;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

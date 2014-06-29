@@ -24,7 +24,10 @@
 #define assert_return(p, v)     if (!(p)) {return (v);}
 
 
+extern void ShowMessage(std::string msg);
+
 CSipCenter *g_sip = new CSipCenter();
+
 
 CSipCenter::CSipCenter()
 {
@@ -41,7 +44,7 @@ CSipCenter::CSipCenter()
     m_proxy = "sip:" + m_domain;
     m_from = "sip:" + m_uname + "@" + m_domain;
     
-    m_sdp = "";
+    //m_sdp = "";
     m_register = false;
 }
 
@@ -112,16 +115,16 @@ bool CSipCenter::Stop()
     return true;
 }
 
-bool CSipCenter::SendInvite(std::string to, std::string subject)
+bool CSipCenter::SendInvite(std::string to, std::string subject, std::string sdp)
 {
     osip_message_t *invite = NULL;
     int iret = eXosip_call_build_initial_invite (m_ctx, &invite, to.c_str(), m_from.c_str(), "", subject.c_str());
-    assert_return(iret != -1, false);
+    assert_return(iret == 0, false);
     osip_message_set_supported (invite, "100rel");
     
     //char localip[128];
     //eXosip_guess_localip (m_osip, AF_INET, localip, 128);
-    osip_message_set_body (invite, m_sdp.c_str(), m_sdp.size());
+    osip_message_set_body (invite, sdp.c_str(), sdp.size());
     osip_message_set_content_type (invite, "application/sdp");
     
     eXosip_lock (m_ctx);
@@ -136,7 +139,7 @@ bool CSipCenter::SendInvite(std::string to, std::string subject)
     return true;
 }
 
-bool CSipCenter::SendAnswer(eXosip_event_t *evt)
+bool CSipCenter::SendAnswer(eXosip_event_t *evt, std::string sdp)
 {
     osip_message_t *answer = NULL;
     int tid = evt->tid;
@@ -151,7 +154,7 @@ bool CSipCenter::SendAnswer(eXosip_event_t *evt)
     else
     {
         //iret = sdp_complete_200ok (did, answer);
-        osip_message_set_body (answer, m_sdp.c_str(), m_sdp.size());
+        osip_message_set_body (answer, sdp.c_str(), sdp.size());
         osip_message_set_content_type (answer, "application/sdp");
         eXosip_call_send_answer (m_ctx, tid, 200, answer);
     }
@@ -184,6 +187,13 @@ bool CSipCenter::SendRegister()
     int iret = 0;
     osip_message_t *reg = NULL;
     
+    assert_return(!m_register, true);
+    
+    if (m_rid >= 1)
+    {
+        return UpdateRegister(m_expires);
+    }
+    
     eXosip_lock (m_ctx);
     std::string contact = "";
     m_rid = eXosip_register_build_initial_register (m_ctx, m_from.c_str(), m_proxy.c_str(),
@@ -196,7 +206,7 @@ bool CSipCenter::SendRegister()
     //osip_message_set_supported (reg, "100rel");
     //osip_message_set_supported(reg, "path");
     
-    m_register = false;
+    
     iret = eXosip_register_send_register (m_ctx, m_rid, reg);
     eXosip_unlock (m_ctx);
     
@@ -207,6 +217,11 @@ bool CSipCenter::UpdateRegister(int expires)
 {
     int iret = 0;
     osip_message_t *reg = NULL;
+    
+    if (m_rid < 1)
+    {
+        return false;
+    }
     
     eXosip_lock (m_ctx);
     iret = eXosip_register_build_register (m_ctx, m_rid, expires, &reg);
@@ -248,11 +263,14 @@ void CSipCenter::Run()
         switch (event->type) {
             case EXOSIP_REGISTRATION_SUCCESS:
                 m_register = true;
+                ShowMessage("Register SIP OK!");
                 break;
             case EXOSIP_REGISTRATION_FAILURE:
                 break;
             case EXOSIP_CALL_INVITE:
             case EXOSIP_CALL_REINVITE:
+                break;
+            case EXOSIP_CALL_NOANSWER:
                 break;
             case EXOSIP_CALL_RINGING:
             case EXOSIP_CALL_ANSWERED:
@@ -263,6 +281,7 @@ void CSipCenter::Run()
                 break;
             case EXOSIP_CALL_CANCELLED:
             case EXOSIP_CALL_CLOSED:
+            case EXOSIP_CALL_RELEASED:
             default:
                 break;
         }

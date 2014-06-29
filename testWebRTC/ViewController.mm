@@ -26,14 +26,14 @@
     long lret = 0;
     _rtc_center = [[RtcCenter alloc]init];
     if([_rtc_center Init]) {
-        //[_rtc_center SetLocalStream];
+        [_rtc_center SetLocalStream];
     }
     
     // for sip init
     if (g_sip != NULL) {
         g_sip->Init();
         g_sip->Start();
-        g_sip->SendRegister();
+        //g_sip->SendRegister();
     }
 }
 
@@ -41,6 +41,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)registerSip:(id)sender
+{
+#warning "registerSip"
+    printf("registerSip...\n");
+    g_sip->SendRegister();
 }
 
 - (IBAction)hangUp:(id)sender
@@ -62,8 +70,13 @@
     NSLog(@"%s",self.input.text.UTF8String);
     printf("call ...\n");
     [self.input resignFirstResponder]; //收起键盘
-    
-    [_rtc_center xrtc]->SetupCall();
+
+    if(g_sip->IsRegister())
+    {
+        std::string touser = "sip:2012@sip.uskee.org";
+        [_rtc_center setTouser:touser];
+        [_rtc_center xrtc]->SetupCall();
+    }
 }
 
 @end

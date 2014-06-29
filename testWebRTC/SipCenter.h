@@ -22,9 +22,10 @@ public:
     bool Init();
     bool Start();
     bool Stop();
+    bool IsRegister() { return m_register; }
     
-    bool SendInvite(std::string to, std::string subject);
-    bool SendAnswer(eXosip_event_t *evt);
+    bool SendInvite(std::string to, std::string subject, std::string sdp);
+    bool SendAnswer(eXosip_event_t *evt, std::string sdp);
     bool SendInfo(eXosip_event_t *evt, std::string message);
     
     bool SendRegister();
@@ -51,7 +52,7 @@ private:
     std::string m_from;
     std::string m_proxy;
     
-    std::string m_sdp;
+    //std::string m_sdp;
     bool m_register;
     
     bool m_quit;
