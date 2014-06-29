@@ -12,6 +12,8 @@
 @interface RtcCenter : NSObject<IRtcSink> {
 }
 @property (nonatomic) IRtcCenter *xrtc;
+@property (nonatomic, readwrite) std::string touser;
 
 - (bool) Init;
+- (bool) SetLocalStream;
 @end
