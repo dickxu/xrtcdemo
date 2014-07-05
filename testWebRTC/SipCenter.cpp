@@ -17,7 +17,7 @@
 #define DEFAULT_SIP_USER "2011"
 #define DEFAULT_SIP_PASSWD "2011"
 #define DEFAULT_SIP_SCHEME "digest"
-#define DEFAULT_SIP_EXPIRES 1800
+#define DEFAULT_SIP_EXPIRES 3600
 #define DEFAULT_SIP_PORT 5062       /* Listening SIP port */
 
 #define safe_quit(ctx)          if (ctx) {eXosip_quit(ctx); ctx=NULL;}
@@ -46,6 +46,7 @@ CSipCenter::CSipCenter()
     
     //m_sdp = "";
     m_register = false;
+    m_started = false;
 }
 
 CSipCenter::~CSipCenter()
@@ -55,19 +56,19 @@ CSipCenter::~CSipCenter()
 
 bool CSipCenter::Init()
 {
-    TRACE_INITIALIZE (TRACE_LEVEL6, (FILE *)stdout);
+    TRACE_INITIALIZE (TRACE_LEVEL7, (FILE *)stdout);
     
     m_ctx = eXosip_malloc();
     assert_return(m_ctx != NULL, false);
     
     int iret = eXosip_init(m_ctx);
-    assert_return(iret == 0, false);
+    assert_return(iret == OSIP_SUCCESS, false);
     
     iret = eXosip_listen_addr (m_ctx, IPPROTO_UDP, NULL, m_port, AF_INET, 0);
     if (iret != 0) {
         safe_quit(m_ctx);
         fprintf (stderr, "could not initialize transport layer\n");
-        return -1;
+        return false;
     }
     
     char localip[32];
@@ -88,6 +89,7 @@ bool CSipCenter::Init()
     
     eXosip_set_user_agent(m_ctx, (const char *)"xrtcsip/1.0.0");
     iret = eXosip_add_authentication_info (m_ctx, m_uname.c_str(), m_uname.c_str(), m_passwd.c_str(), NULL, NULL);
+    assert_return(iret == OSIP_SUCCESS, false);
     
     return true;
 }
@@ -103,8 +105,13 @@ void * CSipCenter::ThreadStart(void * param)
 
 bool CSipCenter::Start()
 {
-    m_quit = false;
-    int iret = pthread_create(&m_pid, NULL, ThreadStart, (void *)this);
+    int iret = 0;
+    if (!m_started)
+    {
+        m_quit = false;
+        iret = pthread_create(&m_pid, NULL, ThreadStart, (void *)this);
+        m_started = true;
+    }
     return (iret == 0);
 }
 
@@ -112,6 +119,7 @@ bool CSipCenter::Stop()
 {
     m_quit = true;
     pthread_join(m_pid, NULL);
+    m_started = false;
     return true;
 }
 
@@ -119,20 +127,22 @@ bool CSipCenter::SendInvite(std::string to, std::string subject, std::string sdp
 {
     osip_message_t *invite = NULL;
     int iret = eXosip_call_build_initial_invite (m_ctx, &invite, to.c_str(), m_from.c_str(), "", subject.c_str());
-    assert_return(iret == 0, false);
-    osip_message_set_supported (invite, "100rel");
+    assert_return(iret == OSIP_SUCCESS, false);
+    //osip_message_set_supported (invite, "100rel");
     
     //char localip[128];
     //eXosip_guess_localip (m_osip, AF_INET, localip, 128);
-    osip_message_set_body (invite, sdp.c_str(), sdp.size());
-    osip_message_set_content_type (invite, "application/sdp");
+    //iret = osip_message_set_body (invite, sdp.c_str(), sdp.size());
+    assert_return(iret == OSIP_SUCCESS, false);
+    
+    iret = osip_message_set_content_type (invite, "application/sdp");
+    assert_return(iret == OSIP_SUCCESS, false);
     
     eXosip_lock (m_ctx);
     m_cid = eXosip_call_send_initial_invite (m_ctx, invite);
     if (m_cid > 0)
     {
-        void * reference = NULL;
-        eXosip_call_set_reference (m_ctx, m_cid, reference);
+        eXosip_call_set_reference (m_ctx, m_cid, (void *)this);
     }
     eXosip_unlock (m_ctx);
     
@@ -184,18 +194,18 @@ bool CSipCenter::SendInfo(eXosip_event_t *evt, std::string message)
 
 bool CSipCenter::SendRegister()
 {
-    int iret = 0;
-    osip_message_t *reg = NULL;
-    
     assert_return(!m_register, true);
     
-    if (m_rid >= 1)
+    if (m_rid >= 1 && m_register)
     {
         return UpdateRegister(m_expires);
     }
+ 
+    int iret = 0;
+    osip_message_t *reg = NULL;
+    std::string contact = "";
     
     eXosip_lock (m_ctx);
-    std::string contact = "";
     m_rid = eXosip_register_build_initial_register (m_ctx, m_from.c_str(), m_proxy.c_str(),
                                                     contact.c_str(), m_expires * 2, &reg);
     if (m_rid < 1) {
@@ -203,35 +213,34 @@ bool CSipCenter::SendRegister()
         return false;
     }
     
-    //osip_message_set_supported (reg, "100rel");
-    //osip_message_set_supported(reg, "path");
-    
+    osip_message_set_supported (reg, "100rel");
+    osip_message_set_supported(reg, "path");
     
     iret = eXosip_register_send_register (m_ctx, m_rid, reg);
     eXosip_unlock (m_ctx);
+    assert_return(iret == OSIP_SUCCESS, false);
     
-    return (iret == 0);
+    return true;
 }
 
 bool CSipCenter::UpdateRegister(int expires)
 {
-    int iret = 0;
-    osip_message_t *reg = NULL;
-    
     if (m_rid < 1)
     {
         return false;
     }
+ 
+    int iret = 0;
+    osip_message_t *reg = NULL;
     
     eXosip_lock (m_ctx);
     iret = eXosip_register_build_register (m_ctx, m_rid, expires, &reg);
-    if (iret < 0)
+    if (iret == OSIP_SUCCESS)
     {
-        eXosip_unlock (m_ctx);
-        return false;
+        iret = eXosip_register_send_register (m_ctx, m_rid, reg);
     }
-    eXosip_register_send_register (m_ctx, m_rid, reg);
     eXosip_unlock (m_ctx);
+    assert_return(iret == OSIP_SUCCESS, false);
     
     return true;
 }
@@ -239,21 +248,25 @@ bool CSipCenter::UpdateRegister(int expires)
 bool CSipCenter::Teriminate()
 {
     eXosip_lock (m_ctx);
-    eXosip_call_terminate (m_ctx, m_cid, m_did);
+    int iret = eXosip_call_terminate (m_ctx, m_cid, m_did);
     eXosip_unlock (m_ctx);
+    assert_return(iret == OSIP_SUCCESS, false);
+    
     return true;
 }
 
 void CSipCenter::Run()
 {
+    osip_usleep(100*1000);
+    
     int iret = 0;
     for (; !m_quit;)
     {
         eXosip_event_t *event;
         if (!(event = eXosip_event_wait (m_ctx, 0, 1))) {
-            osip_usleep (10000);
             eXosip_execute (m_ctx);
             eXosip_automatic_action (m_ctx);
+            osip_usleep (10000);
             continue;
         }
         
@@ -263,7 +276,6 @@ void CSipCenter::Run()
         switch (event->type) {
             case EXOSIP_REGISTRATION_SUCCESS:
                 m_register = true;
-                ShowMessage("Register SIP OK!");
                 break;
             case EXOSIP_REGISTRATION_FAILURE:
                 break;
@@ -275,6 +287,8 @@ void CSipCenter::Run()
             case EXOSIP_CALL_RINGING:
             case EXOSIP_CALL_ANSWERED:
             case EXOSIP_CALL_REQUESTFAILURE:
+                eXosip_default_action(m_ctx, event);
+                break;
             case EXOSIP_CALL_SERVERFAILURE:
             case EXOSIP_CALL_GLOBALFAILURE:
             case EXOSIP_CALL_ACK:
@@ -283,6 +297,7 @@ void CSipCenter::Run()
             case EXOSIP_CALL_CLOSED:
             case EXOSIP_CALL_RELEASED:
             default:
+                printf("[osip] recv message=%d\n", event->type);
                 break;
         }
         eXosip_event_free(event);

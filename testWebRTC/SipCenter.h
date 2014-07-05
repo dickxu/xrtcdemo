@@ -55,6 +55,7 @@ private:
     //std::string m_sdp;
     bool m_register;
     
+    bool m_started;
     bool m_quit;
     pthread_t m_pid;
 };

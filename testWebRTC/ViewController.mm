@@ -33,7 +33,6 @@
     if (g_sip != NULL) {
         g_sip->Init();
         g_sip->Start();
-        //g_sip->SendRegister();
     }
 }
 
@@ -46,26 +45,22 @@
 
 - (IBAction)registerSip:(id)sender
 {
-#warning "registerSip"
     printf("registerSip...\n");
     g_sip->SendRegister();
 }
 
 - (IBAction)hangUp:(id)sender
 {
-#warning "Hangup"
     printf("hangUp...\n");
 }
 
 - (IBAction)answerCall:(id)sender
 {
-#warning "Answer"
     printf("answerCall..\n");
 }
 
 - (IBAction)call:(id)sender
 {
-#warning "Call"
     //NSLog(@"%@",self.input.text);
     NSLog(@"%s",self.input.text.UTF8String);
     printf("call ...\n");
