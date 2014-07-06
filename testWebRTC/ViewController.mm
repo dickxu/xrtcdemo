@@ -23,7 +23,6 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     // For rtc init
-    long lret = 0;
     _rtc_center = [[RtcCenter alloc]init];
     if([_rtc_center Init]) {
         [_rtc_center SetLocalStream];
@@ -32,6 +31,7 @@
     // for sip init
     if (g_sip != NULL) {
         g_sip->Init();
+        g_sip->SetRTC([_rtc_center xrtc]);
         g_sip->Start();
     }
 }
@@ -66,13 +66,10 @@
     printf("call ...\n");
     [self.input resignFirstResponder]; //收起键盘
 
-    if(g_sip->IsRegister())
-    {
-        std::string touser = "sip:2012@sip.uskee.org";
-        //[_rtc_center setTouser:touser];
-        //[_rtc_center xrtc]->SetupCall();
-        g_sip->SendInvite(touser, "call 2011", "");
-    }
+    std::string touser = "sip:2013@sip.uskee.org";
+    g_sip->SetToUser(touser);
+    g_sip->SendInvite("Calling User", "");
+    [_rtc_center xrtc]->SetupCall();
 }
 
 @end

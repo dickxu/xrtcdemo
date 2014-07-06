@@ -12,6 +12,19 @@
 #include <iostream>
 
 #include "eXosip2/eXosip.h"
+#include "xrtc_api.h"
+
+enum {
+    S_Unknown   = 0x0000,
+    S_Stop      = 0x0001,
+    S_Quit      = 0x0002,
+    S_Middle    = 0x0004,
+    S_Init      = 0x0008,
+    S_Start     = 0x0010,
+    S_Register  = 0x0020,
+    S_Invite    = 0x0040,
+    S_Call      = 0x0080,
+};
 
 class CSipCenter {
 public:
@@ -22,11 +35,15 @@ public:
     bool Init();
     bool Start();
     bool Stop();
-    bool IsRegister() { return m_register; }
     
-    bool SendInvite(std::string to, std::string subject, std::string sdp);
-    bool SendAnswer(eXosip_event_t *evt, std::string sdp);
-    bool SendInfo(eXosip_event_t *evt, std::string message);
+    int GetStatus() { return m_status; }
+    void SetRTC(IRtcCenter *ptr) { m_rtc = ptr;}
+    void SetToUser(std::string to) { m_to = to; }
+    
+    bool SendInvite(std::string subject, std::string sdp);
+    bool SendAnswer(std::string sdp);
+    bool SendInfo(std::string info);
+    bool SendMessage(std::string msg);
     
     bool SendRegister();
     bool UpdateRegister(int expires);
@@ -51,13 +68,12 @@ private:
     std::string m_domain;
     std::string m_from;
     std::string m_proxy;
+    std::string m_to;
     
-    //std::string m_sdp;
-    bool m_register;
-    
-    bool m_started;
+    int m_status;
     bool m_quit;
     pthread_t m_pid;
+    IRtcCenter *m_rtc;
 };
 
 extern CSipCenter *g_sip;

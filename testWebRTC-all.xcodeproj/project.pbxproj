@@ -114,7 +114,7 @@
 		54A0D96B194C651E0086FFFF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		54A0D96D194C65850086FFFF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		54A0D970194C65BF0086FFFF /* xrtc_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = xrtc_api.h; path = xrtc/inc/xrtc_api.h; sourceTree = SOURCE_ROOT; };
-		54A0D975194C65D10086FFFF /* SipCenter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SipCenter.cpp; sourceTree = "<group>"; };
+		54A0D975194C65D10086FFFF /* SipCenter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp.preprocessed; fileEncoding = 4; path = SipCenter.cpp; sourceTree = "<group>"; };
 		54A0D976194C65D10086FFFF /* SipCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SipCenter.h; sourceTree = "<group>"; };
 		54B3CCB31958920200804C47 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		7D23DF4919436C6B0041CCBE /* testWebRTC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testWebRTC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -381,7 +381,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7D23DF4419436C6B0041CCBE /* Build configuration list for PBXProject "testWebRTC" */;
+			buildConfigurationList = 7D23DF4419436C6B0041CCBE /* Build configuration list for PBXProject "testWebRTC-all" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -792,7 +792,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7D23DF4419436C6B0041CCBE /* Build configuration list for PBXProject "testWebRTC" */ = {
+		7D23DF4419436C6B0041CCBE /* Build configuration list for PBXProject "testWebRTC-all" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7D23DF7C19436C6B0041CCBE /* Debug */,

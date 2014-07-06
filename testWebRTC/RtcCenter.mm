@@ -41,16 +41,12 @@
 
 - (void) OnSessionDescription:(const std::string &)type sdp:(const std::string &)str
 {
-    if (g_sip->IsRegister() && !_touser.empty()) {
-        g_sip->SendInvite(_touser, type, str);
-    }
+    g_sip->SendMessage(str);
 }
 
 - (void) OnIceCandidate:(const std::string &)candidate sdpMid:(const std::string &)mid sdpMLineIndex:(int)index
 {
-    if (g_sip->IsRegister() && !_touser.empty()) {
-        g_sip->SendInvite(_touser, candidate, mid);
-    }
+    g_sip->SendMessage(candidate);
 }
 
 - (void) OnRemoteStream:(int)action
