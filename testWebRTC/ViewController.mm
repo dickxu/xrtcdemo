@@ -69,8 +69,9 @@
     if(g_sip->IsRegister())
     {
         std::string touser = "sip:2012@sip.uskee.org";
-        [_rtc_center setTouser:touser];
-        [_rtc_center xrtc]->SetupCall();
+        //[_rtc_center setTouser:touser];
+        //[_rtc_center xrtc]->SetupCall();
+        g_sip->SendInvite(touser, "call 2011", "");
     }
 }
 

@@ -64,7 +64,7 @@ bool CSipCenter::Init()
     int iret = eXosip_init(m_ctx);
     assert_return(iret == OSIP_SUCCESS, false);
     
-    iret = eXosip_listen_addr (m_ctx, IPPROTO_UDP, NULL, m_port, AF_INET, 0);
+    iret = eXosip_listen_addr (m_ctx, IPPROTO_TCP, NULL, m_port, AF_INET, 0);
     if (iret != 0) {
         safe_quit(m_ctx);
         fprintf (stderr, "could not initialize transport layer\n");
@@ -266,7 +266,7 @@ void CSipCenter::Run()
         if (!(event = eXosip_event_wait (m_ctx, 0, 1))) {
             eXosip_execute (m_ctx);
             eXosip_automatic_action (m_ctx);
-            osip_usleep (10000);
+            osip_usleep (5000);
             continue;
         }
         
@@ -276,6 +276,7 @@ void CSipCenter::Run()
         switch (event->type) {
             case EXOSIP_REGISTRATION_SUCCESS:
                 m_register = true;
+                printf("register OK!\n");
                 break;
             case EXOSIP_REGISTRATION_FAILURE:
                 break;
@@ -286,8 +287,9 @@ void CSipCenter::Run()
                 break;
             case EXOSIP_CALL_RINGING:
             case EXOSIP_CALL_ANSWERED:
+                break;
             case EXOSIP_CALL_REQUESTFAILURE:
-                eXosip_default_action(m_ctx, event);
+                //eXosip_default_action(m_ctx, event);
                 break;
             case EXOSIP_CALL_SERVERFAILURE:
             case EXOSIP_CALL_GLOBALFAILURE:
