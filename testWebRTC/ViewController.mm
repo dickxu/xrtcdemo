@@ -7,8 +7,7 @@
 //
 
 #import "ViewController.h"
-#include "SipCenter.h"
-
+#include "XmppCenter.h"
 
 @interface ViewController ()
 
@@ -28,11 +27,9 @@
         [_rtc_center SetLocalStream];
     }
     
-    // for sip init
-    if (g_sip != NULL) {
-        g_sip->Init();
-        g_sip->SetRTC([_rtc_center xrtc]);
-        g_sip->Start();
+    if (!g_xmpp) {
+        g_xmpp = new XmppCenter();
+        g_xmpp->Init();
     }
 }
 
@@ -46,7 +43,6 @@
 - (IBAction)registerSip:(id)sender
 {
     printf("registerSip...\n");
-    g_sip->SendRegister();
 }
 
 - (IBAction)hangUp:(id)sender
@@ -67,8 +63,6 @@
     [self.input resignFirstResponder]; //收起键盘
 
     std::string touser = "sip:2013@sip.uskee.org";
-    g_sip->SetToUser(touser);
-    g_sip->SendInvite("Calling User", "");
     [_rtc_center xrtc]->SetupCall();
 }
 

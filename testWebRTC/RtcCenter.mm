@@ -7,7 +7,6 @@
 //
 
 #import "RtcCenter.h"
-#include "SipCenter.h"
 #include <string>
 
 @interface RtcCenter()
@@ -41,12 +40,11 @@
 
 - (void) OnSessionDescription:(const std::string &)type sdp:(const std::string &)str
 {
-    g_sip->SendMessage(str);
+
 }
 
 - (void) OnIceCandidate:(const std::string &)candidate sdpMid:(const std::string &)mid sdpMLineIndex:(int)index
 {
-    g_sip->SendMessage(candidate);
 }
 
 - (void) OnRemoteStream:(int)action
