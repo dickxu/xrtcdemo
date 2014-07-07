@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		540A7B4E19570A4F00A56C7F /* RtcCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 540A7B4D19570A4F00A56C7F /* RtcCenter.mm */; };
+		543392411969899D00DB12D9 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 543392401969899D00DB12D9 /* libz.1.2.5.dylib */; };
 		54412336195FA8B100BABD2A /* librtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54412332195FA8A900BABD2A /* librtc.a */; };
 		54412337195FA8B100BABD2A /* libubase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54412330195FA8A900BABD2A /* libubase.a */; };
 		54A0D96C194C651E0086FFFF /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A0D96B194C651E0086FFFF /* libsqlite3.dylib */; };
 		54A0D96E194C65850086FFFF /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54A0D96D194C65850086FFFF /* GLKit.framework */; };
 		54B3CCB41958920200804C47 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B3CCB31958920200804C47 /* libresolv.dylib */; };
-		54C54C121969551A00F0B0A3 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C54C111969551A00F0B0A3 /* libxml2.dylib */; };
+		54E780871969679C004DF64A /* XmppCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 54E780851969679C004DF64A /* XmppCenter.cpp */; };
+		54E7809A1969844B004DF64A /* libgloox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54E78093196969C9004DF64A /* libgloox.a */; };
 		7D23DF4D19436C6B0041CCBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D23DF4C19436C6B0041CCBE /* Foundation.framework */; };
 		7D23DF4F19436C6B0041CCBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D23DF4E19436C6B0041CCBE /* CoreGraphics.framework */; };
 		7D23DF5119436C6B0041CCBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D23DF5019436C6B0041CCBE /* UIKit.framework */; };
@@ -48,6 +50,20 @@
 			remoteGlobalIDString = AD451B566F5E43868895721B;
 			remoteInfo = rtc_static;
 		};
+		54E78092196969C9004DF64A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54E7808D196969C9004DF64A /* gloox.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54C54C1C1969650A00F0B0A3;
+			remoteInfo = gloox;
+		};
+		54E78094196969C9004DF64A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 54E7808D196969C9004DF64A /* gloox.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 54C54C2C1969650A00F0B0A3;
+			remoteInfo = glooxTests;
+		};
 		7D23DF7219436C6B0041CCBE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7D23DF4119436C6B0041CCBE /* Project object */;
@@ -62,12 +78,16 @@
 		37B2894D062842C3BED92818 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		540A7B4D19570A4F00A56C7F /* RtcCenter.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = RtcCenter.mm; sourceTree = "<group>"; };
 		540A7B4F19570A9500A56C7F /* RtcCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RtcCenter.h; sourceTree = "<group>"; };
+		543392401969899D00DB12D9 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		54412327195FA8A900BABD2A /* librtc.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = librtc.xcodeproj; path = ../librtc/bld/librtc.xcodeproj; sourceTree = "<group>"; };
 		54A0D96B194C651E0086FFFF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		54A0D96D194C65850086FFFF /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		54B3CCB31958920200804C47 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		54C54B901969519E00F0B0A3 /* xmpp.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = xmpp.framework; sourceTree = "<group>"; };
 		54C54C111969551A00F0B0A3 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		54E780851969679C004DF64A /* XmppCenter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = XmppCenter.cpp; sourceTree = "<group>"; };
+		54E780861969679C004DF64A /* XmppCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmppCenter.h; sourceTree = "<group>"; };
+		54E7808D196969C9004DF64A /* gloox.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = gloox.xcodeproj; path = "../sipstack/gloox-1.0.10/build/ios/gloox/gloox.xcodeproj"; sourceTree = "<group>"; };
 		7D23DF4919436C6B0041CCBE /* testWebRTC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testWebRTC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D23DF4C19436C6B0041CCBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7D23DF4E19436C6B0041CCBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,7 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54C54C121969551A00F0B0A3 /* libxml2.dylib in Frameworks */,
+				543392411969899D00DB12D9 /* libz.1.2.5.dylib in Frameworks */,
+				54E7809A1969844B004DF64A /* libgloox.a in Frameworks */,
 				54412336195FA8B100BABD2A /* librtc.a in Frameworks */,
 				54412337195FA8B100BABD2A /* libubase.a in Frameworks */,
 				54B3CCB41958920200804C47 /* libresolv.dylib in Frameworks */,
@@ -136,15 +157,27 @@
 		54A0D96F194C65A40086FFFF /* xrtc */ = {
 			isa = PBXGroup;
 			children = (
+				54E780861969679C004DF64A /* XmppCenter.h */,
+				54E780851969679C004DF64A /* XmppCenter.cpp */,
 				540A7B4F19570A9500A56C7F /* RtcCenter.h */,
 				540A7B4D19570A4F00A56C7F /* RtcCenter.mm */,
 			);
 			name = xrtc;
 			sourceTree = "<group>";
 		};
+		54E7808E196969C9004DF64A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54E78093196969C9004DF64A /* libgloox.a */,
+				54E78095196969C9004DF64A /* glooxTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7D23DF4019436C6B0041CCBE = {
 			isa = PBXGroup;
 			children = (
+				54E7808D196969C9004DF64A /* gloox.xcodeproj */,
 				54412327195FA8A900BABD2A /* librtc.xcodeproj */,
 				7D23DF5219436C6B0041CCBE /* testWebRTC */,
 				7D23DF7419436C6B0041CCBE /* testWebRTCTests */,
@@ -166,6 +199,7 @@
 		7D23DF4B19436C6B0041CCBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				543392401969899D00DB12D9 /* libz.1.2.5.dylib */,
 				54C54C111969551A00F0B0A3 /* libxml2.dylib */,
 				54C54B901969519E00F0B0A3 /* xmpp.framework */,
 				54B3CCB31958920200804C47 /* libresolv.dylib */,
@@ -313,6 +347,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 54E7808E196969C9004DF64A /* Products */;
+					ProjectRef = 54E7808D196969C9004DF64A /* gloox.xcodeproj */;
+				},
+				{
 					ProductGroup = 54412328195FA8A900BABD2A /* Products */;
 					ProjectRef = 54412327195FA8A900BABD2A /* librtc.xcodeproj */;
 				},
@@ -338,6 +376,20 @@
 			fileType = archive.ar;
 			path = librtc.a;
 			remoteRef = 54412331195FA8A900BABD2A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54E78093196969C9004DF64A /* libgloox.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgloox.a;
+			remoteRef = 54E78092196969C9004DF64A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		54E78095196969C9004DF64A /* glooxTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = glooxTests.xctest;
+			remoteRef = 54E78094196969C9004DF64A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -404,6 +456,7 @@
 			files = (
 				7D23DF6619436C6B0041CCBE /* ViewController.mm in Sources */,
 				7D23DF5D19436C6B0041CCBE /* AppDelegate.m in Sources */,
+				54E780871969679C004DF64A /* XmppCenter.cpp in Sources */,
 				7D23DF5919436C6B0041CCBE /* main.m in Sources */,
 				540A7B4E19570A4F00A56C7F /* RtcCenter.mm in Sources */,
 			);
@@ -496,7 +549,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = armv7;
@@ -541,7 +594,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1C758CD9DC70471DA28BC6B1 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = (
+					armv7,
+					"$(ARCHS_STANDARD)",
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -552,8 +608,7 @@
 				GCC_PREFIX_HEADER = "testWebRTC/testWebRTC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/xrtc/inc",
-					"$(PROJECT_DIR)/osip2/include",
-					"$(PROJECT_DIR)/exosip/include",
+					"$(PROJECT_DIR)/gloox",
 				);
 				INFOPLIST_FILE = "testWebRTC/testWebRTC-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
@@ -563,6 +618,7 @@
 					"$(PROJECT_DIR)/osip2/libs/ios",
 					"$(PROJECT_DIR)/exosip/libs/ios",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lwebrtc_all",
@@ -583,7 +639,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1C758CD9DC70471DA28BC6B1 /* Pods.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = (
+					armv7,
+					"$(ARCHS_STANDARD)",
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -594,8 +653,7 @@
 				GCC_PREFIX_HEADER = "testWebRTC/testWebRTC-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(PROJECT_DIR)/xrtc/inc",
-					"$(PROJECT_DIR)/osip2/include",
-					"$(PROJECT_DIR)/exosip/include",
+					"$(PROJECT_DIR)/gloox",
 				);
 				INFOPLIST_FILE = "testWebRTC/testWebRTC-Info.plist";
 				LIBRARY_SEARCH_PATHS = (

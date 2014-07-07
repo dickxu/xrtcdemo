@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #include "xrtc_api.h"
+#import "XmppCenter.h"
 
-@interface RtcCenter : NSObject<IRtcSink> {
+@interface RtcCenter : NSObject<IRtcSink, IXmppSink> {
 }
 @property (nonatomic) IRtcCenter *xrtc;
-@property (nonatomic, readwrite) std::string touser;
 
 - (bool) Init;
 - (bool) SetLocalStream;

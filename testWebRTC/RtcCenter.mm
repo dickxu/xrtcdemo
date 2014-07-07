@@ -8,13 +8,13 @@
 
 #import "RtcCenter.h"
 #include <string>
+#include <sstream>
 
 @interface RtcCenter()
 @end
 
 @implementation RtcCenter
 @synthesize xrtc = _xrtc;
-@synthesize touser = _touser;
 
 - (bool) Init
 {
@@ -38,13 +38,15 @@
     return true;
 }
 
-- (void) OnSessionDescription:(const std::string &)type sdp:(const std::string &)str
+- (void) OnSessionDescription:(const std::string &)sdp
 {
-
+    _xrtc->SetLocalDescription(sdp);
+    g_xmpp->SendMessage("sdp", sdp);
 }
 
-- (void) OnIceCandidate:(const std::string &)candidate sdpMid:(const std::string &)mid sdpMLineIndex:(int)index
+- (void) OnIceCandidate:(const std::string &)candidate
 {
+    g_xmpp->SendMessage("ice", candidate);
 }
 
 - (void) OnRemoteStream:(int)action
@@ -63,6 +65,18 @@
 - (void) OnFailureMesssage:(std::string)str
 {
     str = "";
+}
+
+- (void) OnXmppSessionDescription:(const std::string &)sdp
+{
+    _xrtc->SetRemoteDescription(sdp);
+    _xrtc->AnswerCall();
+    
+}
+
+- (void) OnXmppIceCandidate:(const std::string &)candidate
+{
+    _xrtc->AddIceCandidate(candidate);
 }
 
 @end

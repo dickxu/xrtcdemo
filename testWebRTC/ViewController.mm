@@ -27,10 +27,8 @@
         [_rtc_center SetLocalStream];
     }
     
-    if (!g_xmpp) {
-        g_xmpp = new XmppCenter();
-        g_xmpp->Init();
-    }
+    g_xmpp->Init();
+    g_xmpp->SetSink(_rtc_center);
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,7 +40,8 @@
 
 - (IBAction)registerSip:(id)sender
 {
-    printf("registerSip...\n");
+    printf("register...\n");
+    g_xmpp->Start();
 }
 
 - (IBAction)hangUp:(id)sender
@@ -62,8 +61,10 @@
     printf("call ...\n");
     [self.input resignFirstResponder]; //收起键盘
 
-    std::string touser = "sip:2013@sip.uskee.org";
+    std::string touser = "";
+    //g_xmpp->SetToUser(touser);
     [_rtc_center xrtc]->SetupCall();
+    
 }
 
 @end
