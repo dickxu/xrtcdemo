@@ -17,9 +17,10 @@ XmppCenter::XmppCenter()
     m_messageEventFilter = NULL;
     m_chatStateFilter = NULL;
     
-    m_from = "2015@im.uskee.org";
-    m_passwd = "2015";
-    m_to = "2013@im.uskee.org";
+    m_domain = "im.uskee.org";
+    m_from = "2013@im.uskee.org";
+    m_passwd = "2013";
+    m_to = "2015@im.uskee.org";
     
     m_connected = false;
     m_quit = true;
@@ -36,9 +37,20 @@ XmppCenter::~XmppCenter()
 bool XmppCenter::Init()
 {
     bool bret = true;
-    
     bret = InitRtc();
     assert_return(bret, false);
+
+    return true;
+}
+
+void XmppCenter::Uninit()
+{
+    UninitRtc();
+}
+
+bool XmppCenter::Start()
+{
+    Stop();
     
     JID jid(m_from);
     m_client = new Client(jid, m_passwd);
@@ -49,13 +61,6 @@ bool XmppCenter::Init()
     m_client->disco()->setVersion( "messageTest", GLOOX_VERSION, "Linux" );
     m_client->disco()->setIdentity( "client", "bot" );
     m_client->disco()->addFeature( XMLNS_CHAT_STATES );
-   
-    return true;
-}
-
-bool XmppCenter::Start()
-{
-    assert_return(!m_connected, true);
     
     pthread_t tid;
     int iret = pthread_create(&tid, NULL, threadStart, (void *)this);
@@ -70,7 +75,10 @@ bool XmppCenter::Start()
 void XmppCenter::Stop()
 {
     m_quit = true;
-    m_client->disconnect();
+    if (m_connected)
+        m_client->disconnect();
+    usleep(500 * 1000);
+    SAFE_DEL(m_client);
 }
 
 void XmppCenter::PushTask(std::string subject, std::string body)
@@ -127,18 +135,15 @@ void XmppCenter::handleMessage( const Message& msg, MessageSession* session)
            msg.subject().c_str(), msg.body().c_str(), msg.thread().c_str() );
     
     do {
-        if (!m_sink) break;
-        
         std::string subject = msg.subject();
         std::string body = msg.body();
-        if (subject == "sdp")
+        if (subject == "remotesdp")
         {
             PushTask("remotesdp", body);
         }
         else if (subject == "candidate")
         {
             PushTask("candidate", body);
-        
         }
     }while(0);
 }
@@ -169,7 +174,7 @@ void XmppCenter::handleMessageSession( MessageSession *session )
 
 void XmppCenter::handleLog( LogLevel level, LogArea area, const std::string& message )
 {
-    printf("log: level: %d, area: %d, %s\n", level, area, message.c_str() );
+    //printf("log: level: %d, area: %d, %s\n", level, area, message.c_str() );
 }
 
 void * XmppCenter::threadStart(void *arg)
@@ -245,7 +250,9 @@ bool XmppCenter::InitRtc()
     bool bret = xrtc_init();
     assert_return(bret, false);
     
-    m_sink = [[RtcSink alloc]init];
+    if (!m_sink) {
+        m_sink = [[RtcSink alloc]init];
+    }
     assert_return(m_sink, false);
     
     bret = xrtc_create(m_rtc);
@@ -255,8 +262,20 @@ bool XmppCenter::InitRtc()
     return true;
 }
 
+void XmppCenter::UninitRtc()
+{
+    if (m_rtc) {
+        xrtc_destroy(m_rtc);
+        m_rtc = NULL;
+    }
+    xrtc_uninit();
+    m_rtc_init = false;
+}
+
 bool XmppCenter::SetLocalStream()
 {
+    assert_return(!m_rtc_init, true);
+    
     long lret = m_rtc->GetUserMedia(true, false);
     assert_return(lret == 0, false);
     
@@ -266,5 +285,6 @@ bool XmppCenter::SetLocalStream()
     lret = m_rtc->AddLocalStream();
     assert_return(lret == 0, false);
     
+    m_rtc_init = true;
     return true;
 }

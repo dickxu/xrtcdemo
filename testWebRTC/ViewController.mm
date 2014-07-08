@@ -29,34 +29,24 @@
 }
 
 
-- (IBAction)registerSip:(id)sender
+- (IBAction)login:(id)sender
 {
-    printf("register...\n");
+    printf("login...\n");
+    [self.input_from resignFirstResponder]; // recv keyboard
+    std::string fromuser = self.input_from.text.UTF8String;
+    
+    g_xmpp->SetAccount(fromuser, fromuser);
     g_xmpp->PushTask("initlocalstream", "");
     g_xmpp->Start();
 }
 
-- (IBAction)hangUp:(id)sender
-{
-    printf("hangUp...\n");
-}
-
-- (IBAction)answerCall:(id)sender
-{
-    printf("answerCall..\n");
-}
-
 - (IBAction)call:(id)sender
 {
-    //NSLog(@"%@",self.input.text);
-    NSLog(@"%s",self.input.text.UTF8String);
     printf("call ...\n");
-    [self.input resignFirstResponder]; //收起键盘
-    std::string touser = "";
-    //g_xmpp->SetToUser(touser);
-  
+    [self.input_to resignFirstResponder]; // recv keyboard
+    std::string touser = self.input_to.text.UTF8String;
+    g_xmpp->SetRemote(touser);
     g_xmpp->PushTask("setupcall", "");
-    
 }
 
 @end

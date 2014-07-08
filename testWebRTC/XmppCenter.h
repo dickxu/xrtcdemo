@@ -44,11 +44,14 @@ public:
     void PushTask(XmppTask & task);
 
     bool Init();
+    void Uninit();
     bool Start();
     void Stop();
     
     ///> for gloox
-    void SetToUser(std::string touser) { m_to = touser;}
+    void SetAccount(std::string fromuser, std::string passwd)  { m_from = fromuser + "@" + m_domain; m_passwd = passwd; }
+    void SetRemote(std::string touser)      { m_to = touser + "@" + m_domain;}
+    
     bool SendMessage(std::string subject, std::string body);
     
     virtual void onConnect();
@@ -65,6 +68,7 @@ public:
     ///> for librtc
 protected:
     bool InitRtc();
+    void UninitRtc();
     bool SetLocalStream();
     
 protected:
@@ -77,6 +81,7 @@ protected:
 private:
     IRtcCenter * m_rtc;
     IRtcSink * m_sink;
+    bool m_rtc_init;
     
     Client* m_client;
     MessageSession *m_session;
@@ -86,6 +91,7 @@ private:
     std::string m_from;
     std::string m_passwd;
     std::string m_to;
+    std::string m_domain;
 
     bool m_connected;
     bool m_quit;

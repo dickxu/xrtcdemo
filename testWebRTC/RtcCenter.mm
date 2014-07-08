@@ -21,7 +21,7 @@
 {
     XmppTask task("localsdp", sdp);
     g_xmpp->PushTask(task);
-    g_xmpp->SendMessage("sdp", sdp);
+    g_xmpp->SendMessage("remotesdp", sdp);
 }
 
 - (void) OnIceCandidate:(const std::string &)candidate
