@@ -17,20 +17,19 @@
 
 using namespace gloox;
 
+#include "ubase/ubase.h"
+#include "xrtc_api.h"
+#import "RtcCenter.h"
 
 
-///> This is for xmpp sink of objc
-@protocol IXmppSink
-
-@required
-- (void) OnXmppSessionDescription:(const std::string &)sdp;
-
-@required
-- (void) OnXmppIceCandidate:(const std::string &)candidate;
-
-@end
-typedef NSObject<IXmppSink> IXmppSink;
-
+///> xmpp task
+struct XmppTask{
+    XmppTask(){}
+    XmppTask(std::string subject, std::string body) : subject(subject), body(body) {};
+    
+    std::string subject;
+    std::string body;
+};
 
 
 ///> This is Xmpp client
@@ -40,15 +39,17 @@ class XmppCenter : public MessageSessionHandler, ConnectionListener, LogHandler,
 public:
     XmppCenter();
     ~XmppCenter();
-    void SetSink(IXmppSink * sink) { m_sink = sink; }
     
+    void PushTask(std::string subject, std::string body);
+    void PushTask(XmppTask & task);
+
     bool Init();
     bool Start();
     void Stop();
     
+    ///> for gloox
     void SetToUser(std::string touser) { m_to = touser;}
     bool SendMessage(std::string subject, std::string body);
-    
     
     virtual void onConnect();
     virtual void onDisconnect( ConnectionError e );
@@ -61,23 +62,34 @@ public:
     virtual void handleMessageSession( MessageSession *session );
     virtual void handleLog( LogLevel level, LogArea area, const std::string& message );
     
+    ///> for librtc
+protected:
+    bool InitRtc();
+    bool SetLocalStream();
+    
 protected:
     static void * threadStart(void *arg);
     void Run();
     
+    static void * signalStart(void *arg);
+    void Loop();
+    
 private:
-    IXmppSink * m_sink;
+    IRtcCenter * m_rtc;
+    IRtcSink * m_sink;
     
     Client* m_client;
     MessageSession *m_session;
     MessageEventFilter *m_messageEventFilter;
     ChatStateFilter *m_chatStateFilter;
     
-    bool m_connected;
-    
     std::string m_from;
     std::string m_passwd;
     std::string m_to;
+
+    bool m_connected;
+    bool m_quit;
+    ubase::Queue<XmppTask> m_queue;
 };
 
 extern XmppCenter *g_xmpp;

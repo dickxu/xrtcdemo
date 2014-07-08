@@ -14,21 +14,12 @@
 @end
 
 @implementation ViewController
-@synthesize rtc_center = _rtc_center;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    // For rtc init
-    _rtc_center = [[RtcCenter alloc]init];
-    if([_rtc_center Init]) {
-        [_rtc_center SetLocalStream];
-    }
-    
     g_xmpp->Init();
-    g_xmpp->SetSink(_rtc_center);
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,6 +32,7 @@
 - (IBAction)registerSip:(id)sender
 {
     printf("register...\n");
+    g_xmpp->PushTask("initlocalstream", "");
     g_xmpp->Start();
 }
 
@@ -60,10 +52,10 @@
     NSLog(@"%s",self.input.text.UTF8String);
     printf("call ...\n");
     [self.input resignFirstResponder]; //收起键盘
-
     std::string touser = "";
     //g_xmpp->SetToUser(touser);
-    [_rtc_center xrtc]->SetupCall();
+  
+    g_xmpp->PushTask("setupcall", "");
     
 }
 

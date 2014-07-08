@@ -7,13 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "xrtc_api.h"
 #import "XmppCenter.h"
 
-@interface RtcCenter : NSObject<IRtcSink, IXmppSink> {
+@interface RtcSink : NSObject<IRtcSink> {
 }
-@property (nonatomic) IRtcCenter *xrtc;
 
-- (bool) Init;
-- (bool) SetLocalStream;
 @end

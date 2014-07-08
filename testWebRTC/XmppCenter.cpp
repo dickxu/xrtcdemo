@@ -9,16 +9,20 @@ XmppCenter *g_xmpp = new XmppCenter;
 
 XmppCenter::XmppCenter()
 {
+    m_sink = NULL;
+    m_rtc = NULL;
+    
     m_client = NULL;
     m_session = NULL;
     m_messageEventFilter = NULL;
     m_chatStateFilter = NULL;
     
-    m_connected = false;
-    
     m_from = "2015@im.uskee.org";
     m_passwd = "2015";
     m_to = "2013@im.uskee.org";
+    
+    m_connected = false;
+    m_quit = true;
 }
 
 XmppCenter::~XmppCenter()
@@ -32,6 +36,10 @@ XmppCenter::~XmppCenter()
 bool XmppCenter::Init()
 {
     bool bret = true;
+    
+    bret = InitRtc();
+    assert_return(bret, false);
+    
     JID jid(m_from);
     m_client = new Client(jid, m_passwd);
     m_client->registerMessageHandler( this );
@@ -42,7 +50,7 @@ bool XmppCenter::Init()
     m_client->disco()->setIdentity( "client", "bot" );
     m_client->disco()->addFeature( XMLNS_CHAT_STATES );
    
-    return bret;
+    return true;
 }
 
 bool XmppCenter::Start()
@@ -53,21 +61,35 @@ bool XmppCenter::Start()
     int iret = pthread_create(&tid, NULL, threadStart, (void *)this);
     assert_return(iret == 0, false);
     
+    iret = pthread_create(&tid, NULL, signalStart, (void *)this);
+    assert_return(iret == 0, false);
+    
     return true;
 }
 
 void XmppCenter::Stop()
 {
+    m_quit = true;
     m_client->disconnect();
+}
+
+void XmppCenter::PushTask(std::string subject, std::string body)
+{
+    XmppTask task(subject, body);
+    m_queue.push(task);
+}
+
+void XmppCenter::PushTask(XmppTask & task)
+{
+    m_queue.push(task);
 }
 
 bool XmppCenter::SendMessage(std::string subject, std::string body)
 {
     assert_return(m_client != NULL, false);
-    
+
     JID jid(m_to);
     Message message(Message::Chat, jid, body, subject);
-    
     m_client->send(message);
     return true;
 }
@@ -90,7 +112,6 @@ bool XmppCenter::onTLSConnect( const CertInfo& info )
 {
     time_t from( info.date_from );
     time_t to( info.date_to );
-    
     printf( "status: %d\nissuer: %s\npeer: %s\nprotocol: %s\nmac: %s\ncipher: %s\ncompression: %s\n"
            "from: %s\nto: %s\n",
            info.status, info.issuer.c_str(), info.server.c_str(),
@@ -112,33 +133,14 @@ void XmppCenter::handleMessage( const Message& msg, MessageSession* session)
         std::string body = msg.body();
         if (subject == "sdp")
         {
-            [m_sink OnXmppSessionDescription:body];
+            PushTask("remotesdp", body);
         }
-        else if (subject == "ice")
+        else if (subject == "candidate")
         {
-            [m_sink OnXmppIceCandidate:body];
+            PushTask("candidate", body);
         
         }
     }while(0);
-    
-#if 0
-    std::string re = "You said:\n> " + msg.body() + "\nI like that statement.";
-    std::string sub;
-    if( !msg.subject().empty() )
-        sub = "Re: " +  msg.subject();
-    
-    m_messageEventFilter->raiseMessageEvent( MessageEventDisplayed );
-    sleep( 1 );
-
-    m_messageEventFilter->raiseMessageEvent( MessageEventComposing );
-    m_chatStateFilter->setChatState( ChatStateComposing );
-    sleep( 2 );
-
-    m_session->send( re, sub );
-    
-    if( msg.body() == "quit" )
-        m_client->disconnect();
-#endif
 }
 
 void XmppCenter::handleMessageEvent( const JID& from, MessageEventType event )
@@ -184,8 +186,85 @@ void XmppCenter::Run()
     ca.push_back( "/path/to/cacert.crt" );
     m_client->setCACerts( ca );
     m_client->logInstance().registerLogHandler( LogLevelDebug, LogAreaAll, this );
-    
-    m_connected = true;
     m_client->connect(true);
     m_connected = false;
+}
+
+
+///===========================================
+
+
+void * XmppCenter::signalStart(void *arg)
+{
+    XmppCenter *thiz = (XmppCenter *)arg;
+    if (thiz)
+        thiz->Loop();
+    return NULL;
+}
+
+void XmppCenter::Loop()
+{
+    m_quit = false;
+    
+    do {
+        XmppTask task;
+        if(!m_queue.pop(task)) {
+            usleep(100 * 1000);
+            continue;
+        }
+        
+        if (task.subject == "initrtc")
+        {
+        }
+        else if (task.subject == "initlocalstream")
+        {
+            SetLocalStream();
+        }
+        else if (task.subject == "localsdp")
+        {
+            m_rtc->SetLocalDescription(task.body);
+        }
+        else if (task.subject == "remotesdp")
+        {
+            m_rtc->SetRemoteDescription(task.body);
+            m_rtc->AnswerCall();
+        }
+        else if (task.subject == "candidate")
+        {
+            m_rtc->AddIceCandidate(task.body);
+        }
+        else if (task.subject == "setupcall")
+        {
+            m_rtc->SetupCall();
+        }
+    }while(!m_quit);
+}
+
+bool XmppCenter::InitRtc()
+{
+    bool bret = xrtc_init();
+    assert_return(bret, false);
+    
+    m_sink = [[RtcSink alloc]init];
+    assert_return(m_sink, false);
+    
+    bret = xrtc_create(m_rtc);
+    assert_return(bret, false);
+    m_rtc->SetSink(m_sink);
+    
+    return true;
+}
+
+bool XmppCenter::SetLocalStream()
+{
+    long lret = m_rtc->GetUserMedia(true, false);
+    assert_return(lret == 0, false);
+    
+    lret = m_rtc->CreatePeerConnection();
+    assert_return(lret == 0, false);
+    
+    lret = m_rtc->AddLocalStream();
+    assert_return(lret == 0, false);
+    
+    return true;
 }

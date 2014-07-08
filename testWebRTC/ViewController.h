@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RtcCenter.h"
 
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *input;
-@property (retain) RtcCenter *rtc_center;
 @end
