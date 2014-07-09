@@ -20,6 +20,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     g_xmpp->Init();
+    g_xmpp->PushTask("initlocalstream", "");
 }
 
 - (void)didReceiveMemoryWarning
@@ -34,9 +35,7 @@
     printf("login...\n");
     [self.input_from resignFirstResponder]; // recv keyboard
     std::string fromuser = self.input_from.text.UTF8String;
-    
     g_xmpp->SetAccount(fromuser, fromuser);
-    g_xmpp->PushTask("initlocalstream", "");
     g_xmpp->Start();
 }
 
@@ -45,7 +44,8 @@
     printf("call ...\n");
     [self.input_to resignFirstResponder]; // recv keyboard
     std::string touser = self.input_to.text.UTF8String;
-    usleep(1500*1000);
+    
+    usleep(2000*1000);
     g_xmpp->SetRemote(touser);
     g_xmpp->PushTask("setupcall", "");
 }

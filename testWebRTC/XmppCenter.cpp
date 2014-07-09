@@ -12,6 +12,7 @@ XmppCenter::XmppCenter()
     m_sink = NULL;
     m_rtc = NULL;
     
+    m_connected = false;
     m_client = NULL;
     m_session = NULL;
     m_messageEventFilter = NULL;
@@ -22,8 +23,8 @@ XmppCenter::XmppCenter()
     m_passwd = "2013";
     m_to = "2015@im.uskee.org";
     
-    m_connected = false;
     m_quit = true;
+    m_initrtc = false;
 }
 
 XmppCenter::~XmppCenter()
@@ -66,15 +67,11 @@ bool XmppCenter::Start()
     int iret = pthread_create(&tid, NULL, threadStart, (void *)this);
     assert_return(iret == 0, false);
     
-    iret = pthread_create(&tid, NULL, signalStart, (void *)this);
-    assert_return(iret == 0, false);
-    
     return true;
 }
 
 void XmppCenter::Stop()
 {
-    m_quit = true;
     if (m_connected)
         m_client->disconnect();
     usleep(500 * 1000);
@@ -223,10 +220,7 @@ void XmppCenter::Loop()
             continue;
         }
         
-        if (task.subject == "initrtc")
-        {
-        }
-        else if (task.subject == "initlocalstream")
+        if (task.subject == "initlocalstream")
         {
             SetLocalStream();
         }
@@ -236,6 +230,9 @@ void XmppCenter::Loop()
         }
         else if (task.subject == "remotesdp")
         {
+            if (!m_connected)   continue;
+            
+            SetLocalStream();
             m_rtc->SetRemoteDescription(task.body);
             if (task.body.find("offer") != -1) {
                 m_rtc->AnswerCall();
@@ -247,7 +244,15 @@ void XmppCenter::Loop()
         }
         else if (task.subject == "setupcall")
         {
+            if (!m_connected)   continue;
+            
+            SetLocalStream();
             m_rtc->SetupCall();
+        }
+        else if (task.subject == "closecall")
+        {
+            m_rtc->Close();
+            m_initrtc = false;
         }
     }while(!m_quit);
 }
@@ -257,31 +262,36 @@ bool XmppCenter::InitRtc()
     bool bret = xrtc_init();
     assert_return(bret, false);
     
-    if (!m_sink) {
-        m_sink = [[RtcSink alloc]init];
-    }
+    m_sink = [[RtcSink alloc]init];
     assert_return(m_sink, false);
     
     bret = xrtc_create(m_rtc);
     assert_return(bret, false);
     m_rtc->SetSink(m_sink);
     
+    pthread_t tid;
+    int iret = pthread_create(&tid, NULL, signalStart, (void *)this);
+    assert_return(iret == 0, false);
+    
     return true;
 }
 
 void XmppCenter::UninitRtc()
 {
+    m_quit = true;
+    usleep(500*1000);
+    
     if (m_rtc) {
         xrtc_destroy(m_rtc);
         m_rtc = NULL;
     }
     xrtc_uninit();
-    m_rtc_init = false;
 }
 
 bool XmppCenter::SetLocalStream()
 {
-    assert_return(!m_rtc_init, true);
+    assert_return(m_rtc, false);
+    assert_return(!m_initrtc, true);
     
     long lret = m_rtc->GetUserMedia(true, false);
     assert_return(lret == 0, false);
@@ -302,6 +312,8 @@ bool XmppCenter::SetLocalStream()
     lret = m_rtc->AddLocalStream();
     assert_return(lret == 0, false);
     
-    m_rtc_init = true;
+    m_initrtc = true;
+    usleep(100*1000);
+    
     return true;
 }

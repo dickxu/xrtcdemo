@@ -66,7 +66,7 @@ public:
     virtual void handleLog( LogLevel level, LogArea area, const std::string& message );
     
     ///> for librtc
-protected:
+public:
     bool InitRtc();
     void UninitRtc();
     bool SetLocalStream();
@@ -81,8 +81,8 @@ protected:
 private:
     IRtcCenter * m_rtc;
     IRtcSink * m_sink;
-    bool m_rtc_init;
     
+    bool m_connected;
     Client* m_client;
     MessageSession *m_session;
     MessageEventFilter *m_messageEventFilter;
@@ -93,7 +93,7 @@ private:
     std::string m_to;
     std::string m_domain;
 
-    bool m_connected;
+    bool m_initrtc;
     bool m_quit;
     ubase::Queue<XmppTask> m_queue;
 };

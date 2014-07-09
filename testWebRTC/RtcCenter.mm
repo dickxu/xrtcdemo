@@ -42,9 +42,17 @@
     }
 }
 
+- (void) OnIceConnectionState:(int)state
+{
+    if (state == kIceDisconnected || state == kIceFailed)
+    {
+        g_xmpp->PushTask("closecall", "");
+    }
+}
+
 - (void) OnFailureMesssage:(std::string)str
 {
-    str = "";
+    g_xmpp->PushTask("closecall", "");
 }
 
 
