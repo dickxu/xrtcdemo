@@ -237,7 +237,9 @@ void XmppCenter::Loop()
         else if (task.subject == "remotesdp")
         {
             m_rtc->SetRemoteDescription(task.body);
-            m_rtc->AnswerCall();
+            if (task.body.find("offer") != -1) {
+                m_rtc->AnswerCall();
+            }
         }
         else if (task.subject == "candidate")
         {
@@ -288,11 +290,13 @@ bool XmppCenter::SetLocalStream()
     ice_server_t server;
     server.uri = "stun:stun.l.google.com:19302";
     servers.push_back(server);
-    server.uri = "turn:im.uskee.org:3478";
+    
+    server.uri = "turn:uskee.org:3478";
     server.username = "coturn_user";
     server.password = "uskee.org@521";
+    servers.push_back(server);
 
-    lret = m_rtc->CreatePeerConnection();
+    lret = m_rtc->CreatePeerConnection(servers);
     assert_return(lret == 0, false);
     
     lret = m_rtc->AddLocalStream();
