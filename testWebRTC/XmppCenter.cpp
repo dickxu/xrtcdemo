@@ -278,7 +278,15 @@ bool XmppCenter::SetLocalStream()
     
     long lret = m_rtc->GetUserMedia(true, false);
     assert_return(lret == 0, false);
-    
+
+    ice_servers_t servers;
+    ice_server_t server;
+    server.uri = "stun:stun.l.google.com:19302";
+    servers.push_back(server);
+    server.uri = "turn:im.uskee.org:3478";
+    server.username = "coturn_user";
+    server.password = "uskee.org@521";
+
     lret = m_rtc->CreatePeerConnection();
     assert_return(lret == 0, false);
     
