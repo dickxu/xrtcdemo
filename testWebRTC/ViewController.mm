@@ -45,6 +45,7 @@
     printf("call ...\n");
     [self.input_to resignFirstResponder]; // recv keyboard
     std::string touser = self.input_to.text.UTF8String;
+    usleep(1500*1000);
     g_xmpp->SetRemote(touser);
     g_xmpp->PushTask("setupcall", "");
 }
