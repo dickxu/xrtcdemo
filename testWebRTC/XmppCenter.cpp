@@ -135,6 +135,11 @@ void XmppCenter::handleMessage( const Message& msg, MessageSession* session)
            msg.subject().c_str(), msg.body().c_str(), msg.thread().c_str() );
     
     do {
+        if (msg.from().bare() != m_to)
+        {
+            m_to = msg.from().bare();
+        }
+        
         std::string subject = msg.subject();
         std::string body = msg.body();
         if (subject == "remotesdp")
