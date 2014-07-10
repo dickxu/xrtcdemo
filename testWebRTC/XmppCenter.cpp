@@ -293,7 +293,10 @@ bool XmppCenter::SetLocalStream()
     assert_return(m_rtc, false);
     assert_return(!m_initrtc, true);
     
-    long lret = m_rtc->GetUserMedia(true, false);
+    media_constraints_t constraints;
+    constraints.has_audio = true;
+    constraints.has_video = false;
+    long lret = m_rtc->GetUserMedia(constraints);
     assert_return(lret == 0, false);
 
     ice_servers_t servers;
