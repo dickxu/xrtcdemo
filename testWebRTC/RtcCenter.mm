@@ -44,7 +44,7 @@
 
 - (void) OnIceConnectionState:(int)state
 {
-    if (state == kIceDisconnected || state == kIceFailed)
+    if (state == kIceConnDisconnected || state == kIceConnFailed)
     {
         g_xmpp->PushTask("closecall", "");
     }
