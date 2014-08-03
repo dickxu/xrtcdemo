@@ -50,10 +50,13 @@
     }
 }
 
-- (void) OnFailureMesssage:(std::string)str
+- (void) OnFailure:(std::string)str
 {
     g_xmpp->PushTask("closecall", "");
 }
+
+- (void) OnError
+{}
 
 
 @end

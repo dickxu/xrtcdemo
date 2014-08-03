@@ -18,6 +18,20 @@
 		543EE3D6198B212000F28A28 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE3B5198B211F00F28A28 /* Cocoa.framework */; };
 		543EE3DE198B212000F28A28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 543EE3DC198B212000F28A28 /* InfoPlist.strings */; };
 		543EE3E0198B212000F28A28 /* xrtcdemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 543EE3DF198B212000F28A28 /* xrtcdemoTests.m */; };
+		543EE422198B3CC900F28A28 /* RtcCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 543EE421198B3CC900F28A28 /* RtcCenter.mm */; };
+		543EE425198B3CE400F28A28 /* XmppCenter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 543EE423198B3CE400F28A28 /* XmppCenter.cpp */; };
+		543EE426198B441B00F28A28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE3BA198B211F00F28A28 /* Foundation.framework */; };
+		543EE849198B485200F28A28 /* libgloox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE846198B482000F28A28 /* libgloox.a */; };
+		543EE84B198B490900F28A28 /* libwebrtc_all.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE84A198B490900F28A28 /* libwebrtc_all.a */; };
+		543EE858198B49AE00F28A28 /* librtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE857198B49A100F28A28 /* librtc.a */; };
+		543EE859198B49AE00F28A28 /* libubase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE855198B49A100F28A28 /* libubase.a */; };
+		543EE85B198B4A4A00F28A28 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE85A198B4A4A00F28A28 /* CoreAudio.framework */; };
+		543EE85F198B4A7C00F28A28 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE85E198B4A7C00F28A28 /* libz.dylib */; };
+		543EE861198B4B2600F28A28 /* libssl.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE860198B4B2600F28A28 /* libssl.dylib */; };
+		543EE863198B4B5E00F28A28 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE862198B4B5E00F28A28 /* AudioToolbox.framework */; };
+		543EE870198B4D5D00F28A28 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE86F198B4D5D00F28A28 /* libcrypto.dylib */; };
+		543EE872198B4D7900F28A28 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE871198B4D7900F28A28 /* libresolv.dylib */; };
+		543EE874198B4DA100F28A28 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543EE873198B4DA100F28A28 /* QTKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +41,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = 543EE3B1198B211F00F28A28;
 			remoteInfo = xrtcdemo;
+		};
+		543EE845198B482000F28A28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 543EE840198B482000F28A28 /* gloox.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 543EE430198B460800F28A28;
+			remoteInfo = gloox;
+		};
+		543EE847198B482000F28A28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 543EE840198B482000F28A28 /* gloox.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 543EE443198B460900F28A28;
+			remoteInfo = glooxTests;
+		};
+		543EE854198B49A100F28A28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 543EE84C198B49A100F28A28 /* librtc.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCBFD7671DC34A0B988B8658;
+			remoteInfo = ubase_static;
+		};
+		543EE856198B49A100F28A28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 543EE84C198B49A100F28A28 /* librtc.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 22A8678D21C3439D9AD19EA8;
+			remoteInfo = rtc_static;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -42,7 +84,7 @@
 		543EE3C3198B211F00F28A28 /* xrtcdemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "xrtcdemo-Prefix.pch"; sourceTree = "<group>"; };
 		543EE3C5198B211F00F28A28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		543EE3C7198B211F00F28A28 /* CAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAppDelegate.h; sourceTree = "<group>"; };
-		543EE3C8198B211F00F28A28 /* CAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAppDelegate.m; sourceTree = "<group>"; };
+		543EE3C8198B211F00F28A28 /* CAppDelegate.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = CAppDelegate.m; sourceTree = "<group>"; };
 		543EE3CB198B212000F28A28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		543EE3CD198B212000F28A28 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		543EE3D3198B212000F28A28 /* xrtcdemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = xrtcdemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +92,22 @@
 		543EE3DB198B212000F28A28 /* xrtcdemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "xrtcdemoTests-Info.plist"; sourceTree = "<group>"; };
 		543EE3DD198B212000F28A28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		543EE3DF198B212000F28A28 /* xrtcdemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xrtcdemoTests.m; sourceTree = "<group>"; };
+		543EE420198B3CC900F28A28 /* RtcCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RtcCenter.h; path = ../../../testWebRTC/RtcCenter.h; sourceTree = "<group>"; };
+		543EE421198B3CC900F28A28 /* RtcCenter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RtcCenter.mm; path = ../../../testWebRTC/RtcCenter.mm; sourceTree = "<group>"; };
+		543EE423198B3CE400F28A28 /* XmppCenter.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = XmppCenter.cpp; path = ../../../testWebRTC/XmppCenter.cpp; sourceTree = "<group>"; };
+		543EE424198B3CE400F28A28 /* XmppCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XmppCenter.h; path = ../../../testWebRTC/XmppCenter.h; sourceTree = "<group>"; };
+		543EE840198B482000F28A28 /* gloox.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = gloox.xcodeproj; path = "../../../sipstack/gloox-1.0.10/build/mac/gloox/gloox.xcodeproj"; sourceTree = "<group>"; };
+		543EE84A198B490900F28A28 /* libwebrtc_all.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libwebrtc_all.a; path = ../../xrtc/libs/mac/libwebrtc_all.a; sourceTree = "<group>"; };
+		543EE84C198B49A100F28A28 /* librtc.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = librtc.xcodeproj; path = ../../../librtc/bld/librtc.xcodeproj; sourceTree = "<group>"; };
+		543EE85A198B4A4A00F28A28 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		543EE85C198B4A6D00F28A28 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		543EE85E198B4A7C00F28A28 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		543EE860198B4B2600F28A28 /* libssl.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.dylib; path = usr/lib/libssl.dylib; sourceTree = SDKROOT; };
+		543EE862198B4B5E00F28A28 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		543EE86D198B4D2700F28A28 /* libssl.0.9.8.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libssl.0.9.8.dylib; path = usr/lib/libssl.0.9.8.dylib; sourceTree = SDKROOT; };
+		543EE86F198B4D5D00F28A28 /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		543EE871198B4D7900F28A28 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
+		543EE873198B4DA100F28A28 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +115,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				543EE858198B49AE00F28A28 /* librtc.a in Frameworks */,
+				543EE859198B49AE00F28A28 /* libubase.a in Frameworks */,
+				543EE849198B485200F28A28 /* libgloox.a in Frameworks */,
+				543EE84B198B490900F28A28 /* libwebrtc_all.a in Frameworks */,
+				543EE85F198B4A7C00F28A28 /* libz.dylib in Frameworks */,
+				543EE861198B4B2600F28A28 /* libssl.dylib in Frameworks */,
+				543EE870198B4D5D00F28A28 /* libcrypto.dylib in Frameworks */,
+				543EE872198B4D7900F28A28 /* libresolv.dylib in Frameworks */,
+				543EE874198B4DA100F28A28 /* QTKit.framework in Frameworks */,
+				543EE863198B4B5E00F28A28 /* AudioToolbox.framework in Frameworks */,
+				543EE85B198B4A4A00F28A28 /* CoreAudio.framework in Frameworks */,
+				543EE426198B441B00F28A28 /* Foundation.framework in Frameworks */,
 				543EE3B6198B211F00F28A28 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +146,8 @@
 		543EE3A9198B211F00F28A28 = {
 			isa = PBXGroup;
 			children = (
+				543EE84C198B49A100F28A28 /* librtc.xcodeproj */,
+				543EE840198B482000F28A28 /* gloox.xcodeproj */,
 				543EE3BB198B211F00F28A28 /* xrtcdemo */,
 				543EE3D9198B212000F28A28 /* xrtcdemoTests */,
 				543EE3B4198B211F00F28A28 /* Frameworks */,
@@ -95,6 +167,16 @@
 		543EE3B4198B211F00F28A28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				543EE871198B4D7900F28A28 /* libresolv.dylib */,
+				543EE86F198B4D5D00F28A28 /* libcrypto.dylib */,
+				543EE86D198B4D2700F28A28 /* libssl.0.9.8.dylib */,
+				543EE860198B4B2600F28A28 /* libssl.dylib */,
+				543EE85E198B4A7C00F28A28 /* libz.dylib */,
+				543EE85C198B4A6D00F28A28 /* libz.1.2.5.dylib */,
+				543EE84A198B490900F28A28 /* libwebrtc_all.a */,
+				543EE873198B4DA100F28A28 /* QTKit.framework */,
+				543EE862198B4B5E00F28A28 /* AudioToolbox.framework */,
+				543EE85A198B4A4A00F28A28 /* CoreAudio.framework */,
 				543EE3B5198B211F00F28A28 /* Cocoa.framework */,
 				543EE3D4198B212000F28A28 /* XCTest.framework */,
 				543EE3B7198B211F00F28A28 /* Other Frameworks */,
@@ -115,6 +197,10 @@
 		543EE3BB198B211F00F28A28 /* xrtcdemo */ = {
 			isa = PBXGroup;
 			children = (
+				543EE423198B3CE400F28A28 /* XmppCenter.cpp */,
+				543EE424198B3CE400F28A28 /* XmppCenter.h */,
+				543EE420198B3CC900F28A28 /* RtcCenter.h */,
+				543EE421198B3CC900F28A28 /* RtcCenter.mm */,
 				543EE3C7198B211F00F28A28 /* CAppDelegate.h */,
 				543EE3C8198B211F00F28A28 /* CAppDelegate.m */,
 				543EE3CA198B212000F28A28 /* MainMenu.xib */,
@@ -152,6 +238,24 @@
 				543EE3DC198B212000F28A28 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		543EE841198B482000F28A28 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				543EE846198B482000F28A28 /* libgloox.a */,
+				543EE848198B482000F28A28 /* glooxTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		543EE84D198B49A100F28A28 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				543EE855198B49A100F28A28 /* libubase.a */,
+				543EE857198B49A100F28A28 /* librtc.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +322,16 @@
 			mainGroup = 543EE3A9198B211F00F28A28;
 			productRefGroup = 543EE3B3198B211F00F28A28 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 543EE841198B482000F28A28 /* Products */;
+					ProjectRef = 543EE840198B482000F28A28 /* gloox.xcodeproj */;
+				},
+				{
+					ProductGroup = 543EE84D198B49A100F28A28 /* Products */;
+					ProjectRef = 543EE84C198B49A100F28A28 /* librtc.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				543EE3B1198B211F00F28A28 /* xrtcdemo */,
@@ -225,6 +339,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		543EE846198B482000F28A28 /* libgloox.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libgloox.a;
+			remoteRef = 543EE845198B482000F28A28 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		543EE848198B482000F28A28 /* glooxTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = glooxTests.xctest;
+			remoteRef = 543EE847198B482000F28A28 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		543EE855198B49A100F28A28 /* libubase.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libubase.a;
+			remoteRef = 543EE854198B49A100F28A28 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		543EE857198B49A100F28A28 /* librtc.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = librtc.a;
+			remoteRef = 543EE856198B49A100F28A28 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		543EE3B0198B211F00F28A28 /* Resources */ = {
@@ -253,6 +398,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				543EE422198B3CC900F28A28 /* RtcCenter.mm in Sources */,
+				543EE425198B3CE400F28A28 /* XmppCenter.cpp in Sources */,
 				543EE3C9198B211F00F28A28 /* CAppDelegate.m in Sources */,
 				543EE3C2198B211F00F28A28 /* main.m in Sources */,
 			);
@@ -316,8 +463,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -354,8 +502,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -385,15 +534,28 @@
 		543EE3E4198B212000F28A28 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xrtcdemo/xrtcdemo-Prefix.pch";
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../gloox",
+					"$(SRCROOT)/../../xrtc/inc",
+				);
 				INFOPLIST_FILE = "xrtcdemo/xrtcdemo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../../xrtc/libs/mac",
+					/Users/yongzxu/wspace/xrtcdemo/xrtc/libs/mac,
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -403,15 +565,28 @@
 		543EE3E5198B212000F28A28 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xrtcdemo/xrtcdemo-Prefix.pch";
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../gloox",
+					"$(SRCROOT)/../../xrtc/inc",
+				);
 				INFOPLIST_FILE = "xrtcdemo/xrtcdemo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../../xrtc/libs/mac",
+					/Users/yongzxu/wspace/xrtcdemo/xrtc/libs/mac,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -421,6 +596,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xrtcdemo.app/Contents/MacOS/xrtcdemo";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -443,6 +619,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xrtcdemo.app/Contents/MacOS/xrtcdemo";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -476,6 +653,7 @@
 				543EE3E5198B212000F28A28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		543EE3E6198B212000F28A28 /* Build configuration list for PBXNativeTarget "xrtcdemoTests" */ = {
 			isa = XCConfigurationList;
@@ -484,6 +662,7 @@
 				543EE3E8198B212000F28A28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

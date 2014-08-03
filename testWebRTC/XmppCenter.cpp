@@ -295,6 +295,11 @@ bool XmppCenter::SetLocalStream()
     
     media_constraints_t constraints;
     constraints.has_audio = true;
+    constraints.audio.aec = true;
+    constraints.audio.agc = true;
+    constraints.audio.highPassFilter = true;
+    constraints.audio.ns = true;
+    
     constraints.has_video = false;
     long lret = m_rtc->GetUserMedia(constraints);
     assert_return(lret == 0, false);
